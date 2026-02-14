@@ -23,8 +23,6 @@ This interactive portfolio showcases **real-world data architecture solutions** 
 - 🔍 **Understand the technical depth**
 - 🎯 **See proof**
 
-Built with a **glassmorphism design** and SaaS monitoring aesthetic, featuring live system logs, interactive dashboards, and real SQL code examples.
-
 ---
 
 ## ⚡ Key Achievements Highlighted
