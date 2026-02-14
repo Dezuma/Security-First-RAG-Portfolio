@@ -127,18 +127,6 @@ Terminal-style sidebar showing:
 
 ---
 
-## 💡 Design Philosophy
-
-This portfolio was designed with **technical recruiters** in mind:
-
-1. **Show, Don't Tell**: Interactive elements prove technical depth
-2. **Mobile-First**: Most recruiters review on phones
-3. **Speed Matters**: Fast loading, no heavy frameworks
-4. **Proof of Work**: Real SQL queries, not just claims
-5. **Professional Aesthetic**: SaaS monitoring tool vibe, not generic portfolio
-
----
-
 ## 🚀 How to Use This Repository
 
 ### **For Recruiters & Hiring Managers**
@@ -157,7 +145,7 @@ cd Security-First-RAG-Portfolio
 open index.html
 ```
 
-The entire portfolio is a **single HTML file** with embedded CSS and JavaScript - no build process required!
+The entire portfolio is a **single HTML file** with embedded CSS and JavaScript.
 
 ---
 
