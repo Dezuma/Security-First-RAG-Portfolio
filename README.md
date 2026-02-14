@@ -16,12 +16,12 @@
 
 ## 💼 About This Portfolio
 
-This interactive portfolio showcases **real-world data architecture solutions** that delivered measurable business impact. Unlike traditional portfolios, this site allows technical recruiters and hiring managers to:
+This interactive portfolio showcases **real-world data architecture solutions** that delivered measurable business impact.
 
-- 📊 **View live performance metrics** from actual projects
-- 💻 **Inspect optimized SQL queries** with a single click
-- 🔍 **Understand the technical depth** behind business results
-- 🎯 **See proof** of cost reduction and revenue growth
+- 📊 **View live performance metrics**
+- 💻 **Inspect optimized SQL queries**
+- 🔍 **Understand the technical depth**
+- 🎯 **See proof**
 
 Built with a **glassmorphism design** and SaaS monitoring aesthetic, featuring live system logs, interactive dashboards, and real SQL code examples.
 
