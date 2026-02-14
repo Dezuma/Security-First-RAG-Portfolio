@@ -94,10 +94,8 @@ This interactive portfolio showcases **real-world data architecture solutions** 
 
 ## 🎯 Portfolio Sections
 
-### **1. Hero Section**
+### **1. Memo**
 > "Transforming Chaos Into Insight"
-
-Opening statement that positions expertise in data architecture and strategic problem-solving.
 
 ### **2. Quick Wins**
 Six high-impact metrics showing:
