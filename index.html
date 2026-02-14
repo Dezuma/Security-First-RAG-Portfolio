@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debaris Ezumah | Senior Data Solutions Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1a2332;
+            --accent-cyan: #00d9ff;
+            --accent-green: #00ff88;
+            --accent-orange: #ff6b35;
+            --accent-purple: #a78bfa;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --glass-bg: rgba(17, 24, 39, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Floating orbs for depth */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-cyan);
+            top: -100px;
+            right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-purple);
+            bottom: -50px;
+            left: -50px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        /* Main layout */
+        .container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Terminal Sidebar */
+        .terminal-sidebar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            padding: 2rem 1.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-section {
+            margin-bottom: 2rem;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .profile-stats {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal logs */
+        .terminal-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+        }
+
+        .terminal-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .terminal-logs {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            overflow-y: auto;
+            flex: 1;
+            max-height: calc(100vh - 400px);
+        }
+
+        .log-entry {
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: logAppear 0.3s ease-out forwards;
+        }
+
+        @keyframes logAppear {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .log-time {
+            color: var(--text-secondary);
+        }
+
+        .log-success {
+            color: var(--accent-green);
+        }
+
+        .log-info {
+            color: var(--accent-cyan);
+        }
+
+        .log-warning {
+            color: var(--accent-orange);
+        }
+
+        /* Main content */
+        .main-content {
+            padding: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero section */
+        .hero {
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        /* Quick Wins Section */
+        .quick-wins {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 2px;
+        }
+
+        .wins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .win-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .win-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .win-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .win-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.1);
+        }
+
+        .win-metric {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .win-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .win-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .win-badge {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--accent-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Tableau Section */
+        .tableau-section {
+            margin-bottom: 3rem;
+        }
+
+        .tableau-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tableau-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .tableau-tabs {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tableau-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .tableau-tab.active {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .tableau-embed {
+            width: 100%;
+            min-height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mock-dashboard {
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-metric {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .dashboard-metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .dashboard-metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .chart-placeholder {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chart-placeholder:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent-cyan), rgba(0, 217, 255, 0.3));
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .chart-bar:hover {
+            filter: brightness(1.2);
+        }
+
+        /* SQL Query Panel */
+        .sql-panel {
+            position: fixed;
+            right: -600px;
+            top: 0;
+            width: 600px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--accent-cyan);
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .sql-panel.active {
+            right: 0;
+        }
+
+        .sql-panel-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            z-index: 10;
+        }
+
+        .sql-panel-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+        }
+
+        .close-panel {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-panel:hover {
+            color: var(--accent-cyan);
+        }
+
+        .sql-panel-content {
+            padding: 2rem;
+        }
+
+        .sql-query-block {
+            margin-bottom: 2rem;
+        }
+
+        .query-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sql-code {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .sql-keyword {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .sql-comment {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal-sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .terminal-logs {
+                max-height: 200px;
+            }
+
+            .sql-panel {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .wins-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tableau-tabs {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Click indicator */
+        .click-hint {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container">
+        <!-- Terminal Sidebar -->
+        <aside class="terminal-sidebar">
+            <div class="profile-section">
+                <h1 class="profile-name">Debaris Ezumah</h1>
+                <p class="profile-title">Senior Data Solutions Architect | SQL & Database Specialist</p>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Experience</span>
+                        <span class="stat-value">9+ years</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Location</span>
+                        <span class="stat-value">Omaha, NE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Status</span>
+                        <span class="stat-value">Available</span>
+                    </div>
+                </div>
+
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/debaris-ezumah-b71a86233/" class="social-link" target="_blank" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/Dezuma/" class="social-link" target="_blank" title="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://public.tableau.com/app/profile/dbz.dbz/vizzes" class="social-link" target="_blank" title="Tableau">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.654 2.585h.692v.69h.692v.69h-.692v.69h-.692v-.69h-.692v-.69h.692zm-6.923 6.923h.692v.692h.692v.692h-.692v.692h-.692v-.692H4.04v-.692h.692zm13.846 0h.692v.692h.692v.692h-.692v.692h-.692v-.692h-.692v-.692h.692zM11.654 7.392h.692v1.385h1.385v.692h-1.385v1.385h-.692V9.469H10.27v-.692h1.384zm-6.923 6.924h.692v1.384h1.385v.692H5.423v1.385h-.692v-1.385H3.346v-.692h1.385zm13.846 0h.692v1.384h1.385v.692h-1.385v1.385h-.692v-1.385h-1.385v-.692h1.385zm-6.923 3.461h.692v.692h.692v.692h-.692v.692h-.692v-.692h-.692v-.692h.692z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:debaezu@gmail.com" class="social-link" title="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="terminal-section">
+                <div class="terminal-header">
+                    <div class="terminal-indicator"></div>
+                    <span>LIVE SYSTEM LOGS</span>
+                </div>
+                <div class="terminal-logs" id="terminalLogs">
+                    <!-- Logs will be dynamically added here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Transforming Chaos<br>Into Insight</h1>
+                <p class="hero-subtitle">
+                    Architecting data infrastructures that unlock revenue, reduce costs, and drive strategic decisions.
+                    Specializing in SQL optimization, ETL pipeline automation, and cloud-scale data engineering.
+                </p>
+            </section>
+
+            <!-- Quick Wins Section -->
+            <section class="quick-wins">
+                <h2 class="section-title">Quick Wins & Impact Metrics</h2>
+                <div class="wins-grid">
+                    <div class="win-card">
+                        <div class="win-metric">70%</div>
+                        <div class="win-label">Cost Reduction</div>
+                        <div class="win-description">
+                            Automated FinOps protocols cutting operational expenses by $20M+ annually through intelligent resource optimization
+                        </div>
+                        <div class="win-badge">SQL Optimization</div>
+                    </div>
+
+                    <div class="win-card">
+                        <div class="win-metric">34%</div>
+                        <div class="win-label">Revenue Increase</div>
+                        <div class="win-description">
+                            Re-engineered Spark/SQL ETL pipelines identifying market inefficiencies and capturing untapped opportunities
+                        </div>
+                        <div class="win-badge">Performance Tuning</div>
+                    </div>
+
+                    <div class="win-card">
+                        <div class="win-metric">95%</div>
+                        <div class="win-label">Error Reduction</div>
+                        <div class="win-description">
+                            Deployed Python/RPA frameworks with OCR, eliminating manual billing errors and preventing financial leakage
+                        </div>
+                        <div class="win-badge">Automation</div>
+                    </div>
+
+                    <div class="win-card">
+                        <div class="win-metric">70%</div>
+                        <div class="win-label">Delivery Precision</div>
+                        <div class="win-description">
+                            Built Python-driven route optimization engine improving geospatial accuracy for global logistics
+                        </div>
+                        <div class="win-badge">Python & Spark</div>
+                    </div>
+
+                    <div class="win-card">
+                        <div class="win-metric">100%</div>
+                        <div class="win-label">Data Availability</div>
+                        <div class="win-description">
+                            Guided critical M&A data integration with seamless schema mapping and zero downtime migration
+                        </div>
+                        <div class="win-badge">Architecture</div>
+                    </div>
+
+                    <div class="win-card">
+                        <div class="win-metric">100K+</div>
+                        <div class="win-label">Real-Time Logs</div>
+                        <div class="win-description">
+                            Scaled AWS Spark pipelines processing social analytics at enterprise scale with 95% efficiency gain
+                        </div>
+                        <div class="win-badge">AWS & Big Data</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tableau Dashboard Section -->
+            <section class="tableau-section">
+                <h2 class="section-title">Interactive Dashboards & Analytics</h2>
+                <div class="tableau-container">
+                    <div class="tableau-header">
+                        <div class="tableau-tabs">
+                            <div class="tableau-tab active">Performance Metrics</div>
+                            <div class="tableau-tab">Cost Analysis</div>
+                            <div class="tableau-tab">Pipeline Health</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tableau-embed">
+                        <div class="mock-dashboard">
+                            <div class="dashboard-grid">
+                                <div class="dashboard-metric">
+                                    <div class="dashboard-metric-value">$20M</div>
+                                    <div class="dashboard-metric-label">Annual Savings</div>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <div class="dashboard-metric-value">99.8%</div>
+                                    <div class="dashboard-metric-label">Uptime SLA</div>
+                                </div>
+                                <div class="dashboard-metric">
+                                    <div class="dashboard-metric-value">2.4s</div>
+                                    <div class="dashboard-metric-label">Avg Query Time</div>
+                                </div>
+                            </div>
+
+                            <div class="chart-placeholder" onclick="openSQLPanel('query1')">
+                                <div class="chart-title">SQL Query Performance Optimization</div>
+                                <div class="chart-bars">
+                                    <div class="chart-bar" style="height: 60%;"></div>
+                                    <div class="chart-bar" style="height: 85%;"></div>
+                                    <div class="chart-bar" style="height: 40%;"></div>
+                                    <div class="chart-bar" style="height: 95%;"></div>
+                                    <div class="chart-bar" style="height: 70%;"></div>
+                                    <div class="chart-bar" style="height: 88%;"></div>
+                                    <div class="chart-bar" style="height: 55%;"></div>
+                                </div>
+                                <div class="click-hint">Click to view SQL →</div>
+                            </div>
+
+                            <div class="chart-placeholder" onclick="openSQLPanel('query2')" style="margin-top: 1.5rem;">
+                                <div class="chart-title">ETL Pipeline Throughput Analysis</div>
+                                <div class="chart-bars">
+                                    <div class="chart-bar" style="height: 75%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    <div class="chart-bar" style="height: 90%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    <div class="chart-bar" style="height: 65%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    <div class="chart-bar" style="height: 82%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    <div class="chart-bar" style="height: 95%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    <div class="chart-bar" style="height: 78%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                </div>
+                                <div class="click-hint">Click to view SQL →</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- SQL Query Panel -->
+    <div class="sql-panel" id="sqlPanel">
+        <div class="sql-panel-header">
+            <h3 class="sql-panel-title">Query Breakdown</h3>
+            <button class="close-panel" onclick="closeSQLPanel()">×</button>
+        </div>
+        <div class="sql-panel-content" id="sqlPanelContent">
+            <!-- SQL content will be dynamically loaded -->
+        </div>
+    </div>
+
+    <script>
+        // Terminal log generation
+        const logTypes = [
+            { type: 'success', messages: [
+                'ETL pipeline executed successfully',
+                'Data validation complete - 0 errors',
+                'Query optimization reduced runtime by 45%',
+                'AWS S3 sync completed - 2.4M records',
+                'Spark job finished - 100% data integrity',
+                'PostgreSQL vacuum analyze complete',
+                'Cache invalidation successful',
+                'Backup completed - 500GB transferred'
+            ]},
+            { type: 'info', messages: [
+                'Loading dimensional model...',
+                'Connecting to Redshift cluster',
+                'Indexing fact tables',
+                'Compiling user analytics',
+                'Analyzing query execution plan',
+                'Monitoring pipeline throughput',
+                'Syncing data catalog metadata'
+            ]},
+            { type: 'warning', messages: [
+                'High memory usage detected - 87%',
+                'Slow query alert - Customer_Orders view',
+                'Schema drift detected in staging',
+                'Network latency spike - 250ms'
+            ]}
+        ];
+
+        function generateLog() {
+            const logContainer = document.getElementById('terminalLogs');
+            const randomType = logTypes[Math.floor(Math.random() * logTypes.length)];
+            const randomMessage = randomType.messages[Math.floor(Math.random() * randomType.messages.length)];
+            
+            const now = new Date();
+            const timestamp = now.toTimeString().split(' ')[0];
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `<span class="log-time">[${timestamp}]</span> <span class="log-${randomType.type}">${randomMessage}</span>`;
+            
+            logContainer.appendChild(logEntry);
+            
+            // Keep only last 20 logs
+            while (logContainer.children.length > 20) {
+                logContainer.removeChild(logContainer.firstChild);
+            }
+            
+            // Auto scroll to bottom
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // Generate initial logs
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => generateLog(), i * 300);
+        }
+
+        // Continue generating logs
+        setInterval(generateLog, 3000);
+
+        // SQL Panel functionality
+        const sqlQueries = {
+            query1: {
+                title: 'Performance Optimization Query',
+                description: 'Complex window function with CTE for query performance analysis',
+                query: `<span class="sql-comment">-- Optimized query using CTEs and window functions</span>
+<span class="sql-keyword">WITH</span> query_metrics <span class="sql-keyword">AS</span> (
+    <span class="sql-keyword">SELECT</span> 
+        query_id,
+        execution_time_ms,
+        rows_processed,
+        <span class="sql-keyword">LAG</span>(execution_time_ms) <span class="sql-keyword">OVER</span> (
+            <span class="sql-keyword">PARTITION BY</span> query_type 
+            <span class="sql-keyword">ORDER BY</span> timestamp
+        ) <span class="sql-keyword">AS</span> prev_exec_time,
+        <span class="sql-keyword">AVG</span>(execution_time_ms) <span class="sql-keyword">OVER</span> (
+            <span class="sql-keyword">PARTITION BY</span> query_type 
+            <span class="sql-keyword">ORDER BY</span> timestamp 
+            <span class="sql-keyword">ROWS BETWEEN</span> 6 <span class="sql-keyword">PRECEDING AND CURRENT ROW</span>
+        ) <span class="sql-keyword">AS</span> moving_avg_7day
+    <span class="sql-keyword">FROM</span> performance_logs
+    <span class="sql-keyword">WHERE</span> timestamp >= <span class="sql-keyword">CURRENT_DATE</span> - <span class="sql-keyword">INTERVAL</span> '30 days'
+)
+<span class="sql-keyword">SELECT</span> 
+    query_id,
+    execution_time_ms,
+    <span class="sql-keyword">ROUND</span>(
+        ((execution_time_ms - prev_exec_time) / prev_exec_time::numeric) * 100, 
+        2
+    ) <span class="sql-keyword">AS</span> pct_change,
+    moving_avg_7day,
+    <span class="sql-keyword">CASE</span> 
+        <span class="sql-keyword">WHEN</span> execution_time_ms < moving_avg_7day * 0.8 <span class="sql-keyword">THEN</span> 'Optimized'
+        <span class="sql-keyword">WHEN</span> execution_time_ms > moving_avg_7day * 1.2 <span class="sql-keyword">THEN</span> 'Degraded'
+        <span class="sql-keyword">ELSE</span> 'Normal'
+    <span class="sql-keyword">END AS</span> performance_status
+<span class="sql-keyword">FROM</span> query_metrics
+<span class="sql-keyword">WHERE</span> prev_exec_time <span class="sql-keyword">IS NOT NULL</span>
+<span class="sql-keyword">ORDER BY</span> execution_time_ms <span class="sql-keyword">DESC</span>
+<span class="sql-keyword">LIMIT</span> 100;`,
+                impact: '45% reduction in average query time, identified 12 slow queries for optimization'
+            },
+            query2: {
+                title: 'ETL Pipeline Monitoring',
+                description: 'Real-time pipeline health monitoring with aggregation',
+                query: `<span class="sql-comment">-- Pipeline throughput analysis with error tracking</span>
+<span class="sql-keyword">SELECT</span> 
+    pipeline_name,
+    <span class="sql-keyword">DATE_TRUNC</span>('hour', execution_start) <span class="sql-keyword">AS</span> hour,
+    <span class="sql-keyword">COUNT</span>(*) <span class="sql-keyword">AS</span> total_runs,
+    <span class="sql-keyword">SUM</span>(<span class="sql-keyword">CASE WHEN</span> status = 'success' <span class="sql-keyword">THEN</span> 1 <span class="sql-keyword">ELSE</span> 0 <span class="sql-keyword">END</span>) <span class="sql-keyword">AS</span> successful_runs,
+    <span class="sql-keyword">ROUND</span>(
+        <span class="sql-keyword">AVG</span>(records_processed)::numeric, 
+        0
+    ) <span class="sql-keyword">AS</span> avg_records,
+    <span class="sql-keyword">PERCENTILE_CONT</span>(0.95) <span class="sql-keyword">WITHIN GROUP</span> (
+        <span class="sql-keyword">ORDER BY</span> duration_seconds
+    ) <span class="sql-keyword">AS</span> p95_duration,
+    <span class="sql-keyword">STRING_AGG</span>(
+        <span class="sql-keyword">DISTINCT</span> error_type, 
+        ', '
+    ) <span class="sql-keyword">FILTER</span> (<span class="sql-keyword">WHERE</span> status = 'failed') <span class="sql-keyword">AS</span> error_types
+<span class="sql-keyword">FROM</span> etl_execution_log
+<span class="sql-keyword">WHERE</span> 
+    execution_start >= <span class="sql-keyword">NOW</span>() - <span class="sql-keyword">INTERVAL</span> '7 days'
+    <span class="sql-keyword">AND</span> environment = 'production'
+<span class="sql-keyword">GROUP BY</span> 
+    pipeline_name, 
+    <span class="sql-keyword">DATE_TRUNC</span>('hour', execution_start)
+<span class="sql-keyword">HAVING</span> 
+    <span class="sql-keyword">COUNT</span>(*) > 0
+<span class="sql-keyword">ORDER BY</span> 
+    hour <span class="sql-keyword">DESC</span>, 
+    pipeline_name;`,
+                impact: '99.8% pipeline success rate, reduced data processing time by 34%'
+            }
+        };
+
+        function openSQLPanel(queryId) {
+            const panel = document.getElementById('sqlPanel');
+            const content = document.getElementById('sqlPanelContent');
+            const query = sqlQueries[queryId];
+            
+            content.innerHTML = `
+                <div class="sql-query-block">
+                    <div class="query-label">${query.title}</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                        ${query.description}
+                    </p>
+                    
+                    <div class="query-label">SQL Query</div>
+                    <pre class="sql-code">${query.query}</pre>
+                    
+                    <div class="query-label" style="margin-top: 2rem;">Business Impact</div>
+                    <p style="color: var(--accent-green); font-size: 1rem; line-height: 1.6;">
+                        ${query.impact}
+                    </p>
+                </div>
+            `;
+            
+            panel.classList.add('active');
+        }
+
+        function closeSQLPanel() {
+            document.getElementById('sqlPanel').classList.remove('active');
+        }
+
+        // Tableau tab switching (mock functionality)
+        document.querySelectorAll('.tableau-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tableau-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Close SQL panel when clicking outside
+        document.addEventListener('click', function(event) {
+            const panel = document.getElementById('sqlPanel');
+            if (panel.classList.contains('active') && 
+                !panel.contains(event.target) && 
+                !event.target.closest('.chart-placeholder')) {
+                closeSQLPanel();
+            }
+        });
+    </script>
+</body>
+</html>
