@@ -107,7 +107,7 @@ Six high-impact metrics showing:
 - Big data scaling solutions
 
 ### **3. Interactive Dashboards**
-Mock Tableau-style visualizations featuring:
+Tableau-style visualizations featuring:
 - SQL query performance optimization
 - ETL pipeline throughput analysis
 - Real-time system monitoring
