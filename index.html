@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debaris Ezumah | Senior Data Solutions Architect</title>
+    <meta name="description" content="Senior Data Solutions Architect with 9+ years driving $20M+ cost savings, 34% revenue lift, and zero-downtime data migrations. SQL, Spark, AWS, ETL, Tableau.">
+    <meta name="theme-color" content="#0a0e17">
+    <!-- Open Graph / LinkedIn & social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Debaris Ezumah | Senior Data Solutions Architect">
+    <meta property="og:description" content="Architecting data infrastructures that unlock revenue, reduce costs, and drive strategic decisions. SQL optimization, ETL, cloud-scale data engineering.">
+    <meta property="og:url" content="https://your-portfolio-url.com">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -409,6 +416,50 @@
             margin-top: 1rem;
         }
 
+        /* Tech stack */
+        .tech-section {
+            margin-bottom: 3rem;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tech-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .tech-pill:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .tableau-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .tableau-cta-link:hover {
+            color: var(--accent-green);
+        }
+
         /* Tableau Section */
         .tableau-section {
             margin-bottom: 3rem;
@@ -447,10 +498,24 @@
             font-size: 0.9rem;
         }
 
+        .tableau-tab:hover {
+            border-color: rgba(0, 217, 255, 0.5);
+            color: var(--text-primary);
+        }
+
         .tableau-tab.active {
             background: rgba(0, 217, 255, 0.1);
             border-color: var(--accent-cyan);
             color: var(--accent-cyan);
+        }
+
+        .tableau-view {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tableau-view.active {
+            display: block;
         }
 
         .tableau-embed {
@@ -770,6 +835,26 @@
                 </p>
             </section>
 
+            <!-- Technologies -->
+            <section class="tech-section">
+                <h2 class="section-title">Technologies &amp; Tools</h2>
+                <p class="hero-subtitle" style="margin-bottom: 0;">SQL · Python · Spark · AWS · ETL · Tableau · PostgreSQL · Redshift · FinOps · Data Architecture</p>
+                <div class="tech-grid">
+                    <span class="tech-pill">SQL</span>
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Apache Spark</span>
+                    <span class="tech-pill">AWS</span>
+                    <span class="tech-pill">Tableau</span>
+                    <span class="tech-pill">PostgreSQL</span>
+                    <span class="tech-pill">Redshift</span>
+                    <span class="tech-pill">ETL / ELT</span>
+                    <span class="tech-pill">FinOps</span>
+                    <span class="tech-pill">RPA</span>
+                    <span class="tech-pill">Data Modeling</span>
+                    <span class="tech-pill">dbt</span>
+                </div>
+            </section>
+
             <!-- Quick Wins Section -->
             <section class="quick-wins">
                 <h2 class="section-title">Quick Wins & Impact Metrics</h2>
@@ -832,58 +917,122 @@
 
             <!-- Tableau Dashboard Section -->
             <section class="tableau-section">
-                <h2 class="section-title">Interactive Dashboards & Analytics</h2>
+                <h2 class="section-title">Interactive Dashboards &amp; Analytics</h2>
+                <a href="https://public.tableau.com/app/profile/dbz.dbz/vizzes" class="tableau-cta-link" target="_blank" rel="noopener">View my Tableau Public dashboards →</a>
                 <div class="tableau-container">
                     <div class="tableau-header">
                         <div class="tableau-tabs">
-                            <div class="tableau-tab active">Performance Metrics</div>
-                            <div class="tableau-tab">Cost Analysis</div>
-                            <div class="tableau-tab">Pipeline Health</div>
+                            <div class="tableau-tab active" data-tab="performance">Performance Metrics</div>
+                            <div class="tableau-tab" data-tab="cost">Cost Analysis</div>
+                            <div class="tableau-tab" data-tab="pipeline">Pipeline Health</div>
                         </div>
                     </div>
                     
                     <div class="tableau-embed">
-                        <div class="mock-dashboard">
-                            <div class="dashboard-grid">
-                                <div class="dashboard-metric">
-                                    <div class="dashboard-metric-value">$20M</div>
-                                    <div class="dashboard-metric-label">Annual Savings</div>
+                        <!-- Performance Metrics view -->
+                        <div class="tableau-view active" id="view-performance">
+                            <div class="mock-dashboard">
+                                <div class="dashboard-grid">
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">$20M</div>
+                                        <div class="dashboard-metric-label">Annual Savings</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">99.8%</div>
+                                        <div class="dashboard-metric-label">Uptime SLA</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">2.4s</div>
+                                        <div class="dashboard-metric-label">Avg Query Time</div>
+                                    </div>
                                 </div>
-                                <div class="dashboard-metric">
-                                    <div class="dashboard-metric-value">99.8%</div>
-                                    <div class="dashboard-metric-label">Uptime SLA</div>
+                                <div class="chart-placeholder" data-sql="query1">
+                                    <div class="chart-title">SQL Query Performance Optimization</div>
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 60%;"></div>
+                                        <div class="chart-bar" style="height: 85%;"></div>
+                                        <div class="chart-bar" style="height: 40%;"></div>
+                                        <div class="chart-bar" style="height: 95%;"></div>
+                                        <div class="chart-bar" style="height: 70%;"></div>
+                                        <div class="chart-bar" style="height: 88%;"></div>
+                                        <div class="chart-bar" style="height: 55%;"></div>
+                                    </div>
+                                    <div class="click-hint">Click to view SQL →</div>
                                 </div>
-                                <div class="dashboard-metric">
-                                    <div class="dashboard-metric-value">2.4s</div>
-                                    <div class="dashboard-metric-label">Avg Query Time</div>
+                                <div class="chart-placeholder" data-sql="query2" style="margin-top: 1.5rem;">
+                                    <div class="chart-title">ETL Pipeline Throughput Analysis</div>
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 75%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 90%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 65%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 82%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 95%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 78%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                                    </div>
+                                    <div class="click-hint">Click to view SQL →</div>
                                 </div>
                             </div>
-
-                            <div class="chart-placeholder" onclick="openSQLPanel('query1')">
-                                <div class="chart-title">SQL Query Performance Optimization</div>
-                                <div class="chart-bars">
-                                    <div class="chart-bar" style="height: 60%;"></div>
-                                    <div class="chart-bar" style="height: 85%;"></div>
-                                    <div class="chart-bar" style="height: 40%;"></div>
-                                    <div class="chart-bar" style="height: 95%;"></div>
-                                    <div class="chart-bar" style="height: 70%;"></div>
-                                    <div class="chart-bar" style="height: 88%;"></div>
-                                    <div class="chart-bar" style="height: 55%;"></div>
+                        </div>
+                        <!-- Cost Analysis view -->
+                        <div class="tableau-view" id="view-cost">
+                            <div class="mock-dashboard">
+                                <div class="dashboard-grid">
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">70%</div>
+                                        <div class="dashboard-metric-label">Cost Reduction</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">$2.1M</div>
+                                        <div class="dashboard-metric-label">Monthly Savings</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">34%</div>
+                                        <div class="dashboard-metric-label">ROI Improvement</div>
+                                    </div>
                                 </div>
-                                <div class="click-hint">Click to view SQL →</div>
+                                <div class="chart-placeholder" data-sql="query1">
+                                    <div class="chart-title">Cloud Spend by Service (FinOps)</div>
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 45%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 70%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 55%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 38%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
+                                        <div class="chart-bar" style="height: 62%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
+                                    </div>
+                                    <div class="click-hint">Click to view SQL →</div>
+                                </div>
                             </div>
-
-                            <div class="chart-placeholder" onclick="openSQLPanel('query2')" style="margin-top: 1.5rem;">
-                                <div class="chart-title">ETL Pipeline Throughput Analysis</div>
-                                <div class="chart-bars">
-                                    <div class="chart-bar" style="height: 75%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    <div class="chart-bar" style="height: 90%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    <div class="chart-bar" style="height: 65%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    <div class="chart-bar" style="height: 82%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    <div class="chart-bar" style="height: 95%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    <div class="chart-bar" style="height: 78%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
+                        </div>
+                        <!-- Pipeline Health view -->
+                        <div class="tableau-view" id="view-pipeline">
+                            <div class="mock-dashboard">
+                                <div class="dashboard-grid">
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">99.8%</div>
+                                        <div class="dashboard-metric-label">Success Rate</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">100K+</div>
+                                        <div class="dashboard-metric-label">Logs / Hour</div>
+                                    </div>
+                                    <div class="dashboard-metric">
+                                        <div class="dashboard-metric-value">95%</div>
+                                        <div class="dashboard-metric-label">Efficiency Gain</div>
+                                    </div>
                                 </div>
-                                <div class="click-hint">Click to view SQL →</div>
+                                <div class="chart-placeholder" data-sql="query2">
+                                    <div class="chart-title">Pipeline Runs by Status (7d)</div>
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 92%;"></div>
+                                        <div class="chart-bar" style="height: 88%;"></div>
+                                        <div class="chart-bar" style="height: 95%;"></div>
+                                        <div class="chart-bar" style="height: 90%;"></div>
+                                        <div class="chart-bar" style="height: 85%;"></div>
+                                        <div class="chart-bar" style="height: 98%;"></div>
+                                        <div class="chart-bar" style="height: 94%;"></div>
+                                    </div>
+                                    <div class="click-hint">Click to view SQL →</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1071,23 +1220,52 @@
             document.getElementById('sqlPanel').classList.remove('active');
         }
 
-        // Tableau tab switching (mock functionality)
+        // Tableau tab switching – show the matching dashboard view
         document.querySelectorAll('.tableau-tab').forEach(tab => {
             tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                if (!tabId) return;
                 document.querySelectorAll('.tableau-tab').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
+                document.querySelectorAll('.tableau-view').forEach(view => view.classList.remove('active'));
+                const viewEl = document.getElementById('view-' + tabId);
+                if (viewEl) viewEl.classList.add('active');
             });
         });
 
-        // Close SQL panel when clicking outside
+        // Chart placeholders: open SQL panel by data-sql (works in all tab views)
         document.addEventListener('click', function(event) {
-            const panel = document.getElementById('sqlPanel');
-            if (panel.classList.contains('active') && 
-                !panel.contains(event.target) && 
-                !event.target.closest('.chart-placeholder')) {
-                closeSQLPanel();
+            const placeholder = event.target.closest('.chart-placeholder[data-sql]');
+            if (placeholder) {
+                const queryId = placeholder.getAttribute('data-sql');
+                if (queryId) openSQLPanel(queryId);
             }
         });
+
+        // Close SQL panel when clicking overlay (outside panel)
+        document.addEventListener('click', function(event) {
+            const panel = document.getElementById('sqlPanel');
+            if (!panel.classList.contains('active')) return;
+            if (panel.contains(event.target)) return;
+            if (event.target.closest('.chart-placeholder')) return;
+            closeSQLPanel();
+        });
+
+        // Close SQL panel with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeSQLPanel();
+        });
+
+        // Prevent body scroll when SQL panel is open (keeps alive look intact)
+        const sqlPanel = document.getElementById('sqlPanel');
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+                if (m.attributeName === 'class') {
+                    document.body.style.overflow = sqlPanel.classList.contains('active') ? 'hidden' : '';
+                }
+            });
+        });
+        observer.observe(sqlPanel, { attributes: true });
     </script>
 </body>
 </html>
