@@ -16,7 +16,7 @@
 
 ## 💼 About This Portfolio
 
-This interactive portfolio showcases **real-world data architecture solutions** that delivered measurable business impact.
+This interactive portfolio showcases **my data architecture solutions** that delivered measurable business impact.
 
 - 📊 **View live performance metrics**
 - 💻 **Inspect optimized SQL queries**
@@ -210,19 +210,6 @@ ORDER BY
 - Scaled social analytics processing by **95%** using AWS-based Spark pipelines
 - Designed proprietary SQL database for FMCSA compliance automation
 - Implemented MDM strategy ensuring **100%** data accuracy
-
----
-
-## 🌟 What Makes This Portfolio Different
-
-| Traditional Portfolio | This Portfolio |
-|-----------------------|----------------|
-| Static resume PDF | Interactive web experience |
-| Claims without proof | Click to see actual code |
-| Generic design | Custom glassmorphism UI |
-| Lists of technologies | Live system demonstrations |
-| "Reduced costs" | Shows the SQL query that did it |
-| One-way presentation | Engaging, exploratory interface |
 
 ---
 
