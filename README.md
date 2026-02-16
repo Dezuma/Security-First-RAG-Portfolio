@@ -92,28 +92,6 @@ This interactive portfolio showcases **my data architecture solutions** that del
 
 ---
 
-## 🎯 Portfolio Sections
-
-### **1. Memo**
-> "Transforming Chaos Into Insight"
-
-### **2. Quick Wins**
-Six high-impact metrics showing:
-- Cost reduction strategies
-- Revenue optimization
-- Error elimination
-- Delivery precision improvements
-- Data availability guarantees
-- Big data scaling solutions
-
-### **3. Interactive Dashboards**
-Tableau-style visualizations featuring:
-- SQL query performance optimization
-- ETL pipeline throughput analysis
-- Real-time system monitoring
-
-Each chart is clickable and reveals the underlying SQL code with explanations.
-
 ### **4. Live System Logs**
 Terminal-style sidebar showing:
 - ETL pipeline executions
