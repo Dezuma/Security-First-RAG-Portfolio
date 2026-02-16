@@ -163,27 +163,6 @@ The entire portfolio is a **single HTML file** with embedded CSS and JavaScript.
 
 ---
 
-## 📊 Portfolio Metrics
-
-```sql
--- My Approach to Data Architecture
-SELECT 
-    'Business Impact' AS priority,
-    'Clean Code' AS methodology,
-    'Scalable Solutions' AS deliverable,
-    '9+ Years' AS experience,
-    '$20M+' AS value_delivered
-FROM 
-    career_achievements
-WHERE 
-    passion = 'Data Engineering'
-    AND mindset = 'Problem Solver'
-ORDER BY 
-    impact DESC;
-```
-
----
-
 ## 🎓 Background
 
 - 🎓 **M.S. Cybersecurity** - University of Nebraska-Omaha (Expected 2026)
