@@ -65,6 +65,6 @@ This interactive portfolio showcases **my data architecture solutions** that del
 
 ⭐ **Found this portfolio interesting? Give it a star!**
 
-*Built with passion by Debaris Ezumah | Senior Data Solutions Architect*
+*Built with passion by Debaris Ezumah | Senior Data Engineer | AI Manager*
 
 </div>
