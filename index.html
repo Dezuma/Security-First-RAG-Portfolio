@@ -906,10 +906,11 @@
         }
 
         body:not(.portfolio-unlocked) .ghostlocked-shell .ghostlocked-content {
-            filter: blur(11px);
-            opacity: 0.18;
+            filter: blur(18px) grayscale(0.85);
+            opacity: 0.06;
             pointer-events: none;
             user-select: none;
+            -webkit-user-select: none;
         }
 
         .ghostlocked-overlay {
@@ -924,12 +925,14 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(156, 163, 175, 0.95);
-            background: rgba(10, 14, 23, 0.42);
+            color: rgba(209, 213, 219, 0.98);
+            background: rgba(10, 14, 23, 0.94);
             border-radius: inherit;
             text-align: center;
             padding: 0.5rem;
             line-height: 1.35;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
 
         body:not(.portfolio-unlocked) .ghostlocked-shell .ghostlocked-overlay {
@@ -1444,7 +1447,6 @@
 
     <script>
         (function portfolioGhostUnlock() {
-            var STORAGE_KEY = 'portfolioGhostUnlock';
             var PHRASE = 'Splash';
             var PHRASE_HASH_HEX = 'c3fa854c3d0cb74555b4004fb23812b3b351ec66dcea638d8a6e8d3382d7b46d';
 
@@ -1452,9 +1454,6 @@
 
             function applyUnlock() {
                 document.body.classList.add('portfolio-unlocked');
-                try {
-                    sessionStorage.setItem(STORAGE_KEY, '1');
-                } catch (e) { /* ignore */ }
                 var input = document.getElementById('portfolioGhostPass');
                 if (input) input.value = '';
                 var li = document.querySelector('.portfolio-linkedin-btn');
@@ -1483,11 +1482,7 @@
                 });
             }
 
-            try {
-                if (sessionStorage.getItem(STORAGE_KEY) === '1') {
-                    applyUnlock();
-                }
-            } catch (e) { /* ignore */ }
+            /* Intentionally no sessionStorage/localStorage: each page load stays locked until passphrase (Splash). */
 
             var ghostBuf = '';
             var ghostTimer = null;
