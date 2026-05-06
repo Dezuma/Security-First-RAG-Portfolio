@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Blocks Cursor / cursoragent from appearing as Git contributors via trailers (Cursor-bs.mdc).
+set -euo pipefail
+msg_file="${1:?}"
+
+[[ -f "$msg_file" ]] || exit 0
+
+tmp="$(mktemp)"
+awk '
+function stripped(line) {
+  l = tolower(line)
+  if (l ~ /^[[:space:]]*co-authored-by:/ && (l ~ /cursor/ || l ~ /cursoragent/)) return 1
+  if (l ~ /^[[:space:]]*made-with:/ && l ~ /cursor/) return 1
+  return 0
+}
+{ if (!stripped($0)) print }
+' "$msg_file" >"$tmp"
+mv "$tmp" "$msg_file"
+
+whole="$(tr '[:upper:]' '[:lower:]' <"$msg_file" | tr -d '\000-\037')"
+ide_generated_regex='generated[[:space:]]+by[[:space:]]+cur''sor'
+if [[ "$whole" =~ co-authored-by:.*cursor ]] || [[ "$whole" =~ cursoragent ]] || [[ "$whole" =~ $ide_generated_regex ]]; then
+  echo 'commit-msg hook: blocked — remove Cursor / cursoragent attribution from the commit message.' >&2
+  exit 1
+fi
+
+exit 0
