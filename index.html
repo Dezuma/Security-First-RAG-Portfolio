@@ -894,9 +894,98 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
         }
+
+        /* Employer-specific blocks & LinkedIn — visible after local passphrase */
+        .ghostlocked-shell {
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .ghostlocked-shell .ghostlocked-content {
+            transition: filter 0.35s ease, opacity 0.35s ease;
+        }
+
+        body:not(.portfolio-unlocked) .ghostlocked-shell .ghostlocked-content {
+            filter: blur(11px);
+            opacity: 0.18;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .ghostlocked-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(156, 163, 175, 0.95);
+            background: rgba(10, 14, 23, 0.42);
+            border-radius: inherit;
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 1.35;
+        }
+
+        body:not(.portfolio-unlocked) .ghostlocked-shell .ghostlocked-overlay {
+            display: flex;
+        }
+
+        body.portfolio-unlocked .ghostlocked-shell .ghostlocked-overlay {
+            display: none !important;
+        }
+
+        body.portfolio-unlocked .ghostlocked-shell .ghostlocked-content {
+            filter: none;
+            opacity: 1;
+            pointer-events: auto;
+            user-select: auto;
+        }
+
+        .ghostlocked-shell--icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .ghostlocked-shell--icon .ghostlocked-overlay {
+            font-size: 0.55rem;
+            letter-spacing: 0.06em;
+            padding: 0.15rem;
+        }
+
+        .portfolio-ghost-field {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+            opacity: 0;
+        }
+
+        .wins-grid .ghostlocked-shell.win-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wins-grid .ghostlocked-shell.win-card .ghostlocked-content {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Type the passphrase here (focus via double-click the Experience heading) or type Splash anywhere on the page. -->
+    <input type="password" id="portfolioGhostPass" class="portfolio-ghost-field" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1" aria-hidden="true">
+
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
@@ -910,7 +999,7 @@
                 <div class="profile-stats">
                     <div class="stat-item">
                         <span class="stat-label">Experience</span>
-                        <span class="stat-value">9+ years</span>
+                        <span class="stat-value">10+ years</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-label">Location</span>
@@ -923,11 +1012,16 @@
                 </div>
 
                 <div class="profile-links">
-                    <a href="https://www.linkedin.com/in/debaris-ezumah-b71a86233/" class="social-link" target="_blank" title="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
+                    <span class="ghostlocked-shell ghostlocked-shell--icon" title="Unlock with passphrase">
+                        <span class="ghostlocked-content">
+                            <a href="#" class="social-link portfolio-linkedin-btn" target="_blank" rel="noopener noreferrer" title="LinkedIn (unlock to activate)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </span>
+                        <span class="ghostlocked-overlay" aria-hidden="true">Locked</span>
+                    </span>
                     <a href="https://github.com/Dezuma/" class="social-link" target="_blank" title="GitHub">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -1015,19 +1109,24 @@
 
             <!-- Experience -->
             <section class="experience-section">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-item">
-                    <div class="experience-role">Mgr II Data Engineer & Architect</div>
-                    <div class="experience-meta">Union Pacific · Omaha, NE · 01/2023 – Present</div>
-                    <div class="experience-desc">
-                        Led end-to-end AI/data delivery: route optimization (Python) drove 70% delivery precision,
-                        Spark/SQL ETL modernization drove 34% annual revenue growth, and FinOps governance reduced
-                        operational costs by 67% (>$20M annually).
+                <h2 class="section-title" id="experienceSectionTitle" title="Double-click to enter passphrase">Experience</h2>
+                <div class="ghostlocked-shell">
+                    <div class="ghostlocked-content">
+                        <div class="experience-item">
+                            <div class="experience-role">Mgr II Data Engineer & Architect</div>
+                            <div class="experience-meta">Union Pacific · Omaha, NE · 01/2023 – Present</div>
+                            <div class="experience-desc">
+                                Led end-to-end AI/data delivery: route optimization (Python) drove 70% delivery precision,
+                                Spark/SQL ETL modernization drove 34% annual revenue growth, and FinOps governance reduced
+                                operational costs by 67% (>$20M annually).
+                            </div>
+                        </div>
                     </div>
+                    <div class="ghostlocked-overlay" aria-hidden="true">Confidential employer · type passphrase</div>
                 </div>
                 <div class="experience-item">
                     <div class="experience-role">Sr Data Engineer & Technical Project Lead</div>
-                    <div class="experience-meta">Affordable Trucker Help · Suwanee, GA · 01/2020 – 12/2022</div>
+                    <div class="experience-meta">Affordable Trucker Help · Suwanee, GA · 01/2020 – 04/2026</div>
                     <div class="experience-desc">
                         Directed IRP tracking integration and built an automated monitoring platform that enabled
                         real-time updates, eliminated manual reconciliation, and sustained 100% regulatory compliance.
@@ -1047,13 +1146,16 @@
             <section class="quick-wins">
                 <h2 class="section-title">Quick Wins & Impact Metrics</h2>
                 <div class="wins-grid">
-                    <div class="win-card">
-                        <div class="win-metric">67%</div>
-                        <div class="win-label">Cost Reduction</div>
-                        <div class="win-description">
-                            Architected automated FinOps and data governance protocols cutting operational expenses by $20M+ annually (Union Pacific).
+                    <div class="ghostlocked-shell win-card">
+                        <div class="ghostlocked-content">
+                            <div class="win-metric">67%</div>
+                            <div class="win-label">Cost Reduction</div>
+                            <div class="win-description">
+                                Architected automated FinOps and data governance protocols cutting operational expenses by $20M+ annually (Union Pacific).
+                            </div>
+                            <div class="win-badge">FinOps & Governance</div>
                         </div>
-                        <div class="win-badge">FinOps & Governance</div>
+                        <span class="ghostlocked-overlay" aria-hidden="true">Confidential</span>
                     </div>
 
                     <div class="win-card">
@@ -1074,13 +1176,16 @@
                         <div class="win-badge">Automation</div>
                     </div>
 
-                    <div class="win-card">
-                        <div class="win-metric">70%</div>
-                        <div class="win-label">Delivery Precision</div>
-                        <div class="win-description">
-                            Built Python-driven route optimization engine improving delivery precision for a global client base (Union Pacific).
+                    <div class="ghostlocked-shell win-card">
+                        <div class="ghostlocked-content">
+                            <div class="win-metric">70%</div>
+                            <div class="win-label">Delivery Precision</div>
+                            <div class="win-description">
+                                Built Python-driven route optimization engine improving delivery precision for a global client base (Union Pacific).
+                            </div>
+                            <div class="win-badge">Python & Spark</div>
                         </div>
-                        <div class="win-badge">Python & Spark</div>
+                        <span class="ghostlocked-overlay" aria-hidden="true">Confidential</span>
                     </div>
 
                     <div class="win-card">
@@ -1338,6 +1443,113 @@
     </div>
 
     <script>
+        (function portfolioGhostUnlock() {
+            var STORAGE_KEY = 'portfolioGhostUnlock';
+            var PHRASE = 'Splash';
+            var PHRASE_HASH_HEX = 'c3fa854c3d0cb74555b4004fb23812b3b351ec66dcea638d8a6e8d3382d7b46d';
+
+            var LINKEDIN_URL_B64 = 'aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2RlYmFyaXMtZXp1bWFoLWI3MWE4NjIzMy8=';
+
+            function applyUnlock() {
+                document.body.classList.add('portfolio-unlocked');
+                try {
+                    sessionStorage.setItem(STORAGE_KEY, '1');
+                } catch (e) { /* ignore */ }
+                var input = document.getElementById('portfolioGhostPass');
+                if (input) input.value = '';
+                var li = document.querySelector('.portfolio-linkedin-btn');
+                if (li && LINKEDIN_URL_B64) {
+                    try {
+                        li.href = atob(LINKEDIN_URL_B64);
+                        li.setAttribute('title', 'LinkedIn');
+                    } catch (e) { /* ignore */ }
+                }
+            }
+
+            function sha256Hex(str) {
+                var enc = new TextEncoder().encode(str);
+                return crypto.subtle.digest('SHA-256', enc).then(function (digest) {
+                    return Array.from(new Uint8Array(digest))
+                        .map(function (b) { return b.toString(16).padStart(2, '0'); })
+                        .join('');
+                });
+            }
+
+            function tryUnlockFromInput(value) {
+                var trimmed = (value || '').trim();
+                if (!trimmed) return;
+                sha256Hex(trimmed).then(function (hex) {
+                    if (hex === PHRASE_HASH_HEX) applyUnlock();
+                });
+            }
+
+            try {
+                if (sessionStorage.getItem(STORAGE_KEY) === '1') {
+                    applyUnlock();
+                }
+            } catch (e) { /* ignore */ }
+
+            var ghostBuf = '';
+            var ghostTimer = null;
+
+            function resetGhostBuf() {
+                ghostBuf = '';
+            }
+
+            function pushGhostKey(char) {
+                ghostBuf += char;
+                if (ghostBuf.length > PHRASE.length) {
+                    ghostBuf = ghostBuf.slice(-PHRASE.length);
+                }
+                clearTimeout(ghostTimer);
+                ghostTimer = setTimeout(resetGhostBuf, 2200);
+                if (ghostBuf === PHRASE) {
+                    applyUnlock();
+                    resetGhostBuf();
+                }
+            }
+
+            function isTextInputTarget(el) {
+                if (!el) return false;
+                var tag = el.tagName && el.tagName.toLowerCase();
+                if (tag === 'input' || tag === 'textarea' || tag === 'select') return true;
+                if (el.isContentEditable) return true;
+                return false;
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (document.body.classList.contains('portfolio-unlocked')) return;
+                if (isTextInputTarget(e.target)) return;
+                if (e.key === 'Escape') {
+                    resetGhostBuf();
+                    return;
+                }
+                if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                    pushGhostKey(e.key);
+                }
+            });
+
+            var ghostInput = document.getElementById('portfolioGhostPass');
+            if (ghostInput) {
+                ghostInput.addEventListener('input', function () {
+                    tryUnlockFromInput(ghostInput.value);
+                });
+                ghostInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        tryUnlockFromInput(ghostInput.value);
+                    }
+                });
+            }
+
+            var expTitle = document.getElementById('experienceSectionTitle');
+            if (expTitle && ghostInput) {
+                expTitle.addEventListener('dblclick', function () {
+                    ghostInput.focus({ preventScroll: true });
+                });
+            }
+        })();
+
         // Terminal log generation
         const logTypes = [
             { type: 'success', messages: [
