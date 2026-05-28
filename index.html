@@ -978,7 +978,7 @@
     </style>
 </head>
 <body>
-    <!-- Type the passphrase here (focus via double-click the Experience heading) or type Splash anywhere on the page. -->
+    <!-- Type Splash anywhere on the page to unlock LinkedIn (hidden field for paste entry). -->
     <input type="password" id="portfolioGhostPass" class="portfolio-ghost-field" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1" aria-hidden="true">
 
     <div class="orb orb-1"></div>
@@ -1099,41 +1099,6 @@
                     <span class="tech-pill">Tailwind CSS</span>
                     <span class="tech-pill">Advanced Excel</span>
                     <span class="tech-pill">Bash</span>
-                </div>
-            </section>
-
-            <!-- Experience -->
-            <section class="experience-section">
-                <h2 class="section-title" id="experienceSectionTitle" title="Double-click to enter passphrase">Experience</h2>
-                <div class="ghostlocked-shell">
-                    <div class="ghostlocked-content">
-                        <div class="experience-item">
-                            <div class="experience-role">Mgr II Data Engineer & Architect</div>
-                            <div class="experience-meta">Union Pacific · Omaha, NE · 01/2023 – Present</div>
-                            <div class="experience-desc">
-                                Led end-to-end AI/data delivery: route optimization (Python) drove 70% delivery precision,
-                                Spark/SQL ETL modernization drove 34% annual revenue growth, and FinOps governance reduced
-                                operational costs by 67% (>$20M annually).
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ghostlocked-overlay" aria-hidden="true">Confidential employer · type passphrase</div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-role">Sr Data Engineer & Technical Project Lead</div>
-                    <div class="experience-meta">Affordable Trucker Help · Suwanee, GA · 01/2020 – 04/2026</div>
-                    <div class="experience-desc">
-                        Directed IRP tracking integration and built an automated monitoring platform that enabled
-                        real-time updates, eliminated manual reconciliation, and sustained 100% regulatory compliance.
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-role">Office Manager & Data Systems Lead</div>
-                    <div class="experience-meta">Zumach Agency · Buford, GA · 01/2016 – 12/2019</div>
-                    <div class="experience-desc">
-                        Designed a proprietary SQL-based compliance tracking ecosystem and rolled out Master Data
-                        Management practices that maintained 100% contractual data integrity across departments.
-                    </div>
                 </div>
             </section>
 
@@ -1523,12 +1488,6 @@
                 });
             }
 
-            var expTitle = document.getElementById('experienceSectionTitle');
-            if (expTitle && ghostInput) {
-                expTitle.addEventListener('dblclick', function () {
-                    ghostInput.focus({ preventScroll: true });
-                });
-            }
         })();
 
         // Terminal log generation
