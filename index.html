@@ -483,6 +483,26 @@
             border-color: var(--accent-cyan);
             box-shadow: 0 10px 30px rgba(0, 217, 255, 0.08);
         }
+
+        .kapsi-card {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 1rem;
+            align-items: center;
+            border-color: rgba(204, 0, 51, 0.45);
+            background:
+                linear-gradient(100deg, rgba(122, 16, 32, 0.28), transparent 42%),
+                var(--glass-bg);
+        }
+        .kapsi-card:hover { border-color: #e8d7a8; }
+        .kapsi-mark { width: 64px; height: 72px; display: block; }
+        .kapsi-letters {
+            font-family: Palatino, "Palatino Linotype", "Times New Roman", serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            fill: #f4e7c4;
+        }
         .experience-role {
             font-size: 1.2rem;
             font-weight: 600;
@@ -1643,12 +1663,11 @@
             </nav>
             <!-- Hero Section -->
             <section class="hero">
-                <p class="eyebrow">Open to governance, quality, and compliance leadership</p>
+                <p class="eyebrow">Governance, quality, and compliance leadership</p>
                 <h1>Data governance that stays audit-ready</h1>
                 <p class="hero-subtitle">
-                    Data Governance and Quality Lead who stands up Master Data Management, automated compliance,
-                    and regulatory pipelines across healthcare, public records, and logistics. I pair Python and SQL
-                    engineering with cybersecurity risk analysis so architectures meet governance, risk, and compliance standards.
+                    An auditor trusts a pipeline they can trace. I build that record: master data, automated compliance,
+                    and the controls behind healthcare, court, and logistics data. The cybersecurity training is what keeps the design inside the risk standard.
                 </p>
                 <div class="hero-actions">
                     <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Governance%20opportunity" class="cta-button">Hire me / Let's talk</a>
@@ -1895,9 +1914,9 @@
                         </div>
                         <div class="experience-meta">Vortx Data · Atlanta, GA</div>
                         <ul class="bullet-list">
-                            <li>Designed ETL ingestion for 1.3 million public records and 554 GB of legal data daily at 99.9% uptime.</li>
-                            <li>Enforced lineage, privacy, and governance standards on state and federal court public-record datasets.</li>
-                            <li>Cut monthly infrastructure cost 38% with local-first processing and cloud lifecycle policies.</li>
+                            <li>1.3 million public records and 554 GB of legal data land every day, and the pipeline holds 99.9% uptime.</li>
+                            <li>State and federal court files stay inside lineage, privacy, and governance rules.</li>
+                            <li>Monthly infrastructure cost is down 38%. Integrity did not move.</li>
                         </ul>
                     </article>
 
@@ -1908,11 +1927,11 @@
                         </div>
                         <div class="experience-meta">Union Pacific · Omaha, NE</div>
                         <ul class="bullet-list">
-                            <li>Automated medical and regulatory compliance, reducing annual operating cost 67% (more than $20M).</li>
-                            <li>Re-engineered infrastructure data quality and SQL ETL, driving a 34% annual revenue increase.</li>
-                            <li>Deployed Python/RPA validation with OCR, cutting billing errors 95% and saving 5,000+ staff hours a year.</li>
-                            <li>Raised facility maintenance precision 70% with a Python systems optimization engine across a national network.</li>
-                            <li>Delivered C-suite reporting on AI governance, institutional risk, and facility performance.</li>
+                            <li>Medical and regulatory compliance, automated, took 67% and more than $20M out of annual operating cost.</li>
+                            <li>Rebuilt data-quality and SQL ETL. The facility gaps that work exposed produced a 34% revenue increase.</li>
+                            <li>Python, RPA, and OCR cut billing errors 95% and returned 5,000+ staff hours a year.</li>
+                            <li>A Python optimization engine raised facility maintenance precision 70% across a national railroad network.</li>
+                            <li>The C-suite read my brief on AI governance, institutional risk, and facility performance.</li>
                         </ul>
                     </article>
 
@@ -1923,9 +1942,9 @@
                         </div>
                         <div class="experience-meta">Affordable Trucker Help · Suwanee, GA</div>
                         <ul class="bullet-list">
-                            <li>Built a health-and-safety monitoring platform that reached 100% DOT medical regulatory compliance.</li>
-                            <li>Integrated driver certification tracking with core databases so updates stayed current and discrepancies closed.</li>
-                            <li>Aligned operations, legal compliance, and IT around transparent data governance.</li>
+                            <li>The fleet reached 100% DOT medical compliance. The manual compliance risk is gone.</li>
+                            <li>Driver certifications now update in the core databases, and the old discrepancies stay closed.</li>
+                            <li>Operations, legal, and IT work from one governance standard.</li>
                         </ul>
                     </article>
 
@@ -1936,15 +1955,15 @@
                         </div>
                         <div class="experience-meta">Zumach Agency · Buford, GA</div>
                         <ul class="bullet-list">
-                            <li>Stood up an MDM framework with 100% integrity and accuracy across health-system contracts and provider data.</li>
-                            <li>Built a SQL tracking database under Agile methods to automate healthcare compliance and reduce liability risk.</li>
+                            <li>Health-system contracts and provider records held at 100% integrity under the MDM framework.</li>
+                            <li>A SQL tracking database, run Agile, took the manual steps out of healthcare compliance and the liability that came with them.</li>
                         </ul>
                     </article>
                 </div>
             </section>
 
             <section class="tech-section" id="skills">
-                <h2 class="section-title">Skills aligned to the resume</h2>
+                <h2 class="section-title">What I am hired to do</h2>
                 <div class="skill-groups">
                     <div class="skill-group reveal">
                         <h3>Governance &amp; quality</h3>
@@ -2009,7 +2028,7 @@
                     <a href="https://dezuma.github.io/navi-med/" class="project-card featured reveal" target="_blank" rel="noopener">
                         <div class="award">IBM Smart Healthcare · top spot · 109 organizations</div>
                         <h3>NaviMed</h3>
-                        <p>Led the team that won Smart Healthcare, with project governance, data privacy, and compliance built in from concept through deployment. Feb–May 2026.</p>
+                        <p>Won IBM Smart Healthcare against 109 organizations. Privacy and compliance were in the design from the start, through deployment. Feb–May 2026.</p>
                         <div class="project-tags">
                             <span class="project-tag">Healthcare AI</span>
                             <span class="project-tag">Governance</span>
@@ -2018,7 +2037,7 @@
                     </a>
                     <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
                         <h3>System SEO / RAG log audit</h3>
-                        <p>Retrieval-augmented log toolkit with automated quality controls across 10,000+ system records and regulatory standardization. Oct–Dec 2025.</p>
+                        <p>10,000+ system logs brought under one quality standard, with the audit trail a regulator can follow. Oct–Dec 2025.</p>
                         <div class="project-tags">
                             <span class="project-tag">RAG</span>
                             <span class="project-tag">Audit</span>
@@ -2027,7 +2046,7 @@
                     </a>
                     <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
                         <h3>Threat modeling &amp; data security audit</h3>
-                        <p>Mapped enterprise flows with data flow diagrams and delivered 165+ security and governance recommendations. 2024.</p>
+                        <p>165 security and governance fixes, each traced on a data-flow diagram of how the enterprise actually moves data. 2024.</p>
                         <div class="project-tags">
                             <span class="project-tag">DFD</span>
                             <span class="project-tag">GRC</span>
@@ -2035,7 +2054,7 @@
                     </a>
                     <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
                         <h3>BitWarden security &amp; documentation audit</h3>
-                        <p>Python security checks and standardized framework documentation for audit readiness, access transparency, and reliability. Aug–Dec 2024.</p>
+                        <p>Python checks and a documentation standard an auditor can use: who had access, and whether the system was ready. Aug–Dec 2024.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Audit</span>
@@ -2076,19 +2095,26 @@
                 <div class="experience-item">
                     <div class="experience-role">Water for Kids Initiative</div>
                     <div class="experience-meta"><a href="https://primeyef.org/portfolio/clean-water-for-children/" target="_blank" rel="noopener" style="color: var(--accent-cyan);">primeyef.org</a></div>
-                    <div class="experience-desc">Volunteer supporting water-quality access, youth programs, and local fundraising for clean water.</div>
+                    <div class="experience-desc">Clean-water access for children: logistics, youth programs, and the fundraising that keeps the work going.</div>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-role">Kappa Alpha Psi - AH Member</div>
-                    <div class="experience-meta">2025 – Present</div>
-                    <div class="experience-desc">Fundraising up 5% year over year, community participation up 35%, and bi-monthly professional development events.</div>
+                <div class="experience-item kapsi-card">
+                    <svg class="kapsi-mark" viewBox="0 0 64 72" role="img" aria-label="Kappa Alpha Psi">
+                        <path d="M32 2 L60 22 L32 70 L4 22 Z" fill="#7a1020" stroke="#f4e7c4" stroke-width="2"></path>
+                        <path d="M32 9 L53 25 L32 60 L11 25 Z" fill="none" stroke="#f4e7c4" stroke-width="1"></path>
+                        <text class="kapsi-letters" x="32" y="34" text-anchor="middle">ΚΑΨ</text>
+                    </svg>
+                    <div>
+                        <div class="experience-role">Kappa Alpha Psi Fraternity, Inc.</div>
+                        <div class="experience-meta">Member · AH · 2025 – Present</div>
+                        <div class="experience-desc">Raised annual donations 5%. Grew community participation 35%. Professional development runs every other month.</div>
+                    </div>
                 </div>
             </section>
 
             <!-- Bottom CTA -->
             <section class="hero" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
                 <p class="hero-subtitle" style="margin-bottom: 1rem;">
-                    Open to data governance, data quality, and compliance leadership. Buford, GA · debaezu@gmail.com · 678-898-1019.
+                    If the role owns data governance, quality, or compliance, the audit trail is already built. Buford, GA · debaezu@gmail.com · 678-898-1019.
                 </p>
                 <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Governance%20opportunity" class="cta-button">Get in touch</a>
             </section>
