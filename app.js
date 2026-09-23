@@ -397,11 +397,16 @@
                     entry.target.classList.add('in');
                     revealObserver.unobserve(entry.target);
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
 
             document.querySelectorAll('.reveal').forEach(function (el) {
                 revealObserver.observe(el);
             });
+            window.setTimeout(function () {
+                document.querySelectorAll('.reveal:not(.in)').forEach(function (el) {
+                    el.classList.add('in');
+                });
+            }, 1200);
 
             var rail = document.getElementById('timelineFill');
             var timeline = document.getElementById('careerTimeline');

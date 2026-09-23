@@ -1634,12 +1634,12 @@
         <!-- Main Content -->
         <main class="main-content" id="main">
             <nav class="site-nav" aria-label="Portfolio sections">
+                <a href="#dashboards">Graphs</a>
                 <a href="#impact">Impact</a>
                 <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#education">Education</a>
-                <a href="#dashboards">Dashboards</a>
             </nav>
             <!-- Hero Section -->
             <section class="hero">
@@ -1653,6 +1653,173 @@
                 <div class="hero-actions">
                     <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Governance%20opportunity" class="cta-button">Hire me / Let's talk</a>
                     <a href="#experience" class="cta-ghost">See the career timeline</a>
+                </div>
+            </section>
+
+            <!-- Tableau Dashboard Section -->
+            <section class="tableau-section" id="dashboards">
+                <h2 class="section-title">Graphs</h2>
+                <p class="hero-subtitle" style="font-size: 1rem; margin-bottom: 0.75rem;">These are the resume results, drawn to scale. Green means the number fell. Cyan means it rose.</p>
+                <a href="https://public.tableau.com/app/profile/dbz.dbz/vizzes" class="tableau-cta-link" target="_blank" rel="noopener">View my Tableau Public dashboards →</a>
+                <div class="tableau-container">
+                    <div class="tableau-header">
+                        <div class="tableau-tabs">
+                            <button type="button" class="tableau-tab active" data-tab="performance" aria-selected="true">Performance Metrics</button>
+                            <button type="button" class="tableau-tab" data-tab="cost" aria-selected="false">Cost Analysis</button>
+                            <button type="button" class="tableau-tab" data-tab="pipeline" aria-selected="false">Pipeline Health</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tableau-embed">
+                        <div class="tableau-view active" id="view-performance">
+                            <div class="mock-dashboard">
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Read the direction, then the size</div>
+                                        <h3>What changed after the governance work</h3>
+                                        <p class="story-lead">Every measure starts at 100, the level before the change. The colored bar is the resume result on that same scale. A mark at 100 is the baseline. Lower is the win for cost and errors. Higher is the win for revenue and precision.</p>
+                                    </div>
+                                    <div class="legend" aria-hidden="true">
+                                        <span><i class="swatch-before"></i>Before, indexed at 100</span>
+                                        <span><i class="swatch-down"></i>Lower is the win</span>
+                                        <span><i class="swatch-up"></i>Higher is the win</span>
+                                    </div>
+                                    <div class="compare-chart">
+                                        <div class="scale-axis" aria-hidden="true">
+                                            <span style="left:0">0</span>
+                                            <span style="left:55.56%">100 before</span>
+                                            <span style="left:100%">180</span>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Operating cost</strong><span>Union Pacific · lower wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after down" style="--w:18.33%"><em>33</em></span></div>
+                                            </div>
+                                            <div class="delta down">−67%</div>
+                                            <p class="compare-note">More than $20M a year came out of operating cost.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Billing errors</strong><span>OCR validation · lower wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after down" style="--w:2.78%"><em>5</em></span></div>
+                                            </div>
+                                            <div class="delta down">−95%</div>
+                                            <p class="compare-note">Manual billing errors dropped 95%, returning 5,000+ staff hours a year.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Revenue</strong><span>SQL ETL quality · higher wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after up" style="--w:74.44%"><em>134</em></span></div>
+                                            </div>
+                                            <div class="delta up">+34%</div>
+                                            <p class="compare-note">Data-quality and SQL ETL work surfaced facility inefficiencies and a 34% revenue increase.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Facility precision</strong><span>National network · higher wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after up" style="--w:94.44%"><em>170</em></span></div>
+                                            </div>
+                                            <div class="delta up">+70%</div>
+                                            <p class="compare-note">A Python optimization engine raised facility maintenance precision 70%.</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for this review</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableau-view" id="view-cost">
+                            <div class="mock-dashboard">
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Two different clocks</div>
+                                        <h3>Annual operating cost, then monthly infrastructure</h3>
+                                        <p class="story-lead">These are not the same saving. The green ring is Union Pacific’s annual operating cost. The amber ring is Vortx’s monthly infrastructure bill. The filled part is what came out.</p>
+                                    </div>
+                                    <div class="split-charts">
+                                        <article class="ring-card">
+                                            <h4>Annual operating cost</h4>
+                                            <p>Union Pacific. Filled arc is the 67% removed. The open arc is cost that remained.</p>
+                                            <div class="ring-wrap">
+                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="67 percent of annual operating cost removed, more than 20 million dollars">
+                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
+                                                    <circle class="ring-value saved" cx="80" cy="80" r="54" style="--circ:339.29; --gap:111.97"></circle>
+                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">67%</text>
+                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
+                                                </svg>
+                                                <ul class="fact-list">
+                                                    <li><strong>$20M+</strong> kept each year</li>
+                                                    <li>33% of that cost base still running</li>
+                                                    <li>FinOps plus compliance automation</li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article class="ring-card">
+                                            <h4>Monthly infrastructure</h4>
+                                            <p>Vortx Data. Filled arc is the 38% cut. The open arc is the bill that remained.</p>
+                                            <div class="ring-wrap">
+                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="38 percent of monthly infrastructure cost removed">
+                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
+                                                    <circle class="ring-value infra" cx="80" cy="80" r="54" style="--circ:339.29; --gap:210.36"></circle>
+                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">38%</text>
+                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
+                                                </svg>
+                                                <ul class="fact-list">
+                                                    <li>Local-first processing</li>
+                                                    <li>Cloud lifecycle policies</li>
+                                                    <li>Integrity held while the bill fell</li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for spend review</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tableau-view" id="view-pipeline">
+                            <div class="mock-dashboard">
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Zoomed so 99.9 is not a full circle</div>
+                                        <h3>Uptime on a 95 to 100 scale</h3>
+                                        <p class="story-lead">A normal gauge would look completely full. This one starts at 95%, so the last half-point stays visible. The needle stops at 99.9% pipeline uptime while 1.3 million records and 554 GB move each day.</p>
+                                    </div>
+                                    <div class="pipeline-layout">
+                                        <article class="gauge-card">
+                                            <h4>Pipeline uptime</h4>
+                                            <p>Vortx Data. Daily legal and public-record ingestion.</p>
+                                            <svg class="gauge-svg" viewBox="0 0 240 150" role="img" aria-label="Pipeline uptime 99.9 percent on a scale from 95 to 100">
+                                                <path class="gauge-track" d="M24,118 A96,96 0 0 1 216,118"></path>
+                                                <path class="gauge-value" pathLength="100" d="M24,118 A96,96 0 0 1 216,118"></path>
+                                                <text class="gauge-num" x="120" y="104" text-anchor="middle">99.9%</text>
+                                                <text class="gauge-axis" x="18" y="140">95%</text>
+                                                <text class="gauge-axis" x="216" y="140" text-anchor="end">100%</text>
+                                            </svg>
+                                        </article>
+                                        <div class="volume-list">
+                                            <div class="volume-item"><strong>1.3 million</strong><span>public records ingested each day</span></div>
+                                            <div class="volume-item"><strong>554 GB</strong><span>of legal data processed each day</span></div>
+                                            <div class="volume-item"><strong>10,000+</strong><span>system logs checked in the RAG audit</span></div>
+                                        </div>
+                                    </div>
+                                    <article class="flow-card">
+                                        <h4>How a record gets through</h4>
+                                        <div class="flow">
+                                            <div class="flow-step"><strong>Ingest</strong><span>Court and public-record files land in the daily batch.</span></div>
+                                            <div class="flow-arrow" aria-hidden="true">→</div>
+                                            <div class="flow-step"><strong>Govern</strong><span>Lineage, privacy, and quality checks sit on the path.</span></div>
+                                            <div class="flow-arrow" aria-hidden="true">→</div>
+                                            <div class="flow-step"><strong>Hold</strong><span>99.9% uptime keeps the set available for audit.</span></div>
+                                        </div>
+                                    </article>
+                                    <button type="button" class="sql-link" data-sql="query2">Read the SQL pattern for pipeline health</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -1915,173 +2082,6 @@
                     <div class="experience-role">Kappa Alpha Psi - AH Member</div>
                     <div class="experience-meta">2025 – Present</div>
                     <div class="experience-desc">Fundraising up 5% year over year, community participation up 35%, and bi-monthly professional development events.</div>
-                </div>
-            </section>
-
-            <!-- Tableau Dashboard Section -->
-            <section class="tableau-section" id="dashboards">
-                <h2 class="section-title">Interactive Dashboards &amp; Analytics</h2>
-                <p class="hero-subtitle" style="font-size: 1rem; margin-bottom: 0.75rem;">Each chart is a resume result on a labeled scale. The note under a row is what changed. Open the SQL pattern when you want the review query.</p>
-                <a href="https://public.tableau.com/app/profile/dbz.dbz/vizzes" class="tableau-cta-link" target="_blank" rel="noopener">View my Tableau Public dashboards →</a>
-                <div class="tableau-container">
-                    <div class="tableau-header">
-                        <div class="tableau-tabs">
-                            <button type="button" class="tableau-tab active" data-tab="performance" aria-selected="true">Performance Metrics</button>
-                            <button type="button" class="tableau-tab" data-tab="cost" aria-selected="false">Cost Analysis</button>
-                            <button type="button" class="tableau-tab" data-tab="pipeline" aria-selected="false">Pipeline Health</button>
-                        </div>
-                    </div>
-                    
-                    <div class="tableau-embed">
-                        <div class="tableau-view active" id="view-performance">
-                            <div class="mock-dashboard">
-                                <div class="story-board">
-                                    <div>
-                                        <div class="story-kicker">Read the direction, then the size</div>
-                                        <h3>What changed after the governance work</h3>
-                                        <p class="story-lead">Every measure starts at 100, the level before the change. The colored bar is the resume result on that same scale. A mark at 100 is the baseline. Lower is the win for cost and errors. Higher is the win for revenue and precision.</p>
-                                    </div>
-                                    <div class="legend" aria-hidden="true">
-                                        <span><i class="swatch-before"></i>Before, indexed at 100</span>
-                                        <span><i class="swatch-down"></i>Lower is the win</span>
-                                        <span><i class="swatch-up"></i>Higher is the win</span>
-                                    </div>
-                                    <div class="compare-chart">
-                                        <div class="scale-axis" aria-hidden="true">
-                                            <span style="left:0">0</span>
-                                            <span style="left:55.56%">100 before</span>
-                                            <span style="left:100%">180</span>
-                                        </div>
-                                        <div class="compare-row">
-                                            <div class="compare-label"><strong>Operating cost</strong><span>Union Pacific · lower wins</span></div>
-                                            <div class="compare-plot">
-                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
-                                                <div class="bar-line"><span class="bar after down" style="--w:18.33%"><em>33</em></span></div>
-                                            </div>
-                                            <div class="delta down">−67%</div>
-                                            <p class="compare-note">More than $20M a year came out of operating cost.</p>
-                                        </div>
-                                        <div class="compare-row">
-                                            <div class="compare-label"><strong>Billing errors</strong><span>OCR validation · lower wins</span></div>
-                                            <div class="compare-plot">
-                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
-                                                <div class="bar-line"><span class="bar after down" style="--w:2.78%"><em>5</em></span></div>
-                                            </div>
-                                            <div class="delta down">−95%</div>
-                                            <p class="compare-note">Manual billing errors dropped 95%, returning 5,000+ staff hours a year.</p>
-                                        </div>
-                                        <div class="compare-row">
-                                            <div class="compare-label"><strong>Revenue</strong><span>SQL ETL quality · higher wins</span></div>
-                                            <div class="compare-plot">
-                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
-                                                <div class="bar-line"><span class="bar after up" style="--w:74.44%"><em>134</em></span></div>
-                                            </div>
-                                            <div class="delta up">+34%</div>
-                                            <p class="compare-note">Data-quality and SQL ETL work surfaced facility inefficiencies and a 34% revenue increase.</p>
-                                        </div>
-                                        <div class="compare-row">
-                                            <div class="compare-label"><strong>Facility precision</strong><span>National network · higher wins</span></div>
-                                            <div class="compare-plot">
-                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
-                                                <div class="bar-line"><span class="bar after up" style="--w:94.44%"><em>170</em></span></div>
-                                            </div>
-                                            <div class="delta up">+70%</div>
-                                            <p class="compare-note">A Python optimization engine raised facility maintenance precision 70%.</p>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for this review</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tableau-view" id="view-cost">
-                            <div class="mock-dashboard">
-                                <div class="story-board">
-                                    <div>
-                                        <div class="story-kicker">Two different clocks</div>
-                                        <h3>Annual operating cost, then monthly infrastructure</h3>
-                                        <p class="story-lead">These are not the same saving. The green ring is Union Pacific’s annual operating cost. The amber ring is Vortx’s monthly infrastructure bill. The filled part is what came out.</p>
-                                    </div>
-                                    <div class="split-charts">
-                                        <article class="ring-card">
-                                            <h4>Annual operating cost</h4>
-                                            <p>Union Pacific. Filled arc is the 67% removed. The open arc is cost that remained.</p>
-                                            <div class="ring-wrap">
-                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="67 percent of annual operating cost removed, more than 20 million dollars">
-                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
-                                                    <circle class="ring-value saved" cx="80" cy="80" r="54" style="--circ:339.29; --gap:111.97"></circle>
-                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">67%</text>
-                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
-                                                </svg>
-                                                <ul class="fact-list">
-                                                    <li><strong>$20M+</strong> kept each year</li>
-                                                    <li>33% of that cost base still running</li>
-                                                    <li>FinOps plus compliance automation</li>
-                                                </ul>
-                                            </div>
-                                        </article>
-                                        <article class="ring-card">
-                                            <h4>Monthly infrastructure</h4>
-                                            <p>Vortx Data. Filled arc is the 38% cut. The open arc is the bill that remained.</p>
-                                            <div class="ring-wrap">
-                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="38 percent of monthly infrastructure cost removed">
-                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
-                                                    <circle class="ring-value infra" cx="80" cy="80" r="54" style="--circ:339.29; --gap:210.36"></circle>
-                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">38%</text>
-                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
-                                                </svg>
-                                                <ul class="fact-list">
-                                                    <li>Local-first processing</li>
-                                                    <li>Cloud lifecycle policies</li>
-                                                    <li>Integrity held while the bill fell</li>
-                                                </ul>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for spend review</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tableau-view" id="view-pipeline">
-                            <div class="mock-dashboard">
-                                <div class="story-board">
-                                    <div>
-                                        <div class="story-kicker">Zoomed so 99.9 is not a full circle</div>
-                                        <h3>Uptime on a 95 to 100 scale</h3>
-                                        <p class="story-lead">A normal gauge would look completely full. This one starts at 95%, so the last half-point stays visible. The needle stops at 99.9% pipeline uptime while 1.3 million records and 554 GB move each day.</p>
-                                    </div>
-                                    <div class="pipeline-layout">
-                                        <article class="gauge-card">
-                                            <h4>Pipeline uptime</h4>
-                                            <p>Vortx Data. Daily legal and public-record ingestion.</p>
-                                            <svg class="gauge-svg" viewBox="0 0 240 150" role="img" aria-label="Pipeline uptime 99.9 percent on a scale from 95 to 100">
-                                                <path class="gauge-track" d="M24,118 A96,96 0 0 1 216,118"></path>
-                                                <path class="gauge-value" pathLength="100" d="M24,118 A96,96 0 0 1 216,118"></path>
-                                                <text class="gauge-num" x="120" y="104" text-anchor="middle">99.9%</text>
-                                                <text class="gauge-axis" x="18" y="140">95%</text>
-                                                <text class="gauge-axis" x="216" y="140" text-anchor="end">100%</text>
-                                            </svg>
-                                        </article>
-                                        <div class="volume-list">
-                                            <div class="volume-item"><strong>1.3 million</strong><span>public records ingested each day</span></div>
-                                            <div class="volume-item"><strong>554 GB</strong><span>of legal data processed each day</span></div>
-                                            <div class="volume-item"><strong>10,000+</strong><span>system logs checked in the RAG audit</span></div>
-                                        </div>
-                                    </div>
-                                    <article class="flow-card">
-                                        <h4>How a record gets through</h4>
-                                        <div class="flow">
-                                            <div class="flow-step"><strong>Ingest</strong><span>Court and public-record files land in the daily batch.</span></div>
-                                            <div class="flow-arrow" aria-hidden="true">→</div>
-                                            <div class="flow-step"><strong>Govern</strong><span>Lineage, privacy, and quality checks sit on the path.</span></div>
-                                            <div class="flow-arrow" aria-hidden="true">→</div>
-                                            <div class="flow-step"><strong>Hold</strong><span>99.9% uptime keeps the set available for audit.</span></div>
-                                        </div>
-                                    </article>
-                                    <button type="button" class="sql-link" data-sql="query2">Read the SQL pattern for pipeline health</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
