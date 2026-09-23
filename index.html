@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debaris Ezumah | Data Engineer & AI Project Manager</title>
-    <meta name="description" content="Strategic AI Project Manager and Data Engineering Leader delivering enterprise AI/ML and data initiatives. $20M+ annual savings, 34% revenue lift, and production-grade RAG pipelines.">
+        <title>Debaris Ezumah | Data Governance &amp; Data Quality Lead</title>
+    <meta name="description" content="Data Governance and Quality Lead. MDM, automated compliance, and regulatory pipelines across healthcare, public records, and logistics. $20M+ annual savings, 99.9% pipeline uptime, IBM Smart Healthcare challenge winner.">
     <meta name="theme-color" content="#0a0e17">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; connect-src 'self'; trusted-types default; require-trusted-types-for 'script'">
     <!-- Open Graph / LinkedIn & social sharing -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Debaris Ezumah | Data Engineer & AI Project Manager">
-    <meta property="og:description" content="Strategic AI Project Manager and Data Engineering Leader with proven impact in Spark/SQL ETL, FinOps governance, automation, and enterprise AI solutions.">
+    <meta property="og:title" content="Debaris Ezumah | Data Governance &amp; Data Quality Lead">
+    <meta property="og:description" content="Data governance, quality, and compliance leadership. MDM frameworks, audit-ready pipelines, and measurable cost, risk, and revenue outcomes.">
     <meta property="og:url" content="https://dezuma.github.io/Security-First-RAG-Portfolio/">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="trusted-types.js"></script>
@@ -406,30 +406,14 @@
             box-shadow: 0 20px 40px rgba(0, 217, 255, 0.1);
         }
 
-        /* Subtle vertical float for glass panes (Antigravity depth) */
-        .win-card {
-            animation: gentleBob 6s ease-in-out infinite;
-        }
-        .win-card:nth-child(2) { animation-delay: 0.5s; }
-        .win-card:nth-child(3) { animation-delay: 1s; }
-        .win-card:nth-child(4) { animation-delay: 1.5s; }
-        .win-card:nth-child(5) { animation-delay: 2s; }
-        .win-card:nth-child(6) { animation-delay: 2.5s; }
-        @keyframes gentleBob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
         .win-card:hover { animation: none; }
 
         .win-metric {
             font-size: 3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 0.5rem;
             font-family: 'Space Mono', monospace;
+            letter-spacing: -0.03em;
         }
 
         .win-label {
@@ -656,14 +640,274 @@
 
         .tableau-embed {
             width: 100%;
-            min-height: 600px;
+            min-height: 0;
             border-radius: 12px;
             overflow: hidden;
             background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             position: relative;
+        }
+
+        .story-board { display: grid; gap: 1.25rem; }
+        .story-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 0.35rem;
+        }
+        .story-board h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+        }
+        .story-lead {
+            color: var(--text-secondary);
+            line-height: 1.55;
+            max-width: 68ch;
+        }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+        .legend i {
+            display: inline-block;
+            width: 14px;
+            height: 8px;
+            border-radius: 99px;
+            margin-right: 0.4rem;
+            vertical-align: middle;
+        }
+        .swatch-before { background: rgba(229, 231, 235, 0.35); }
+        .swatch-down { background: var(--accent-green); }
+        .swatch-up { background: var(--accent-cyan); }
+        .swatch-keep { background: rgba(167, 139, 250, 0.85); }
+
+        .compare-chart { display: grid; gap: 0.85rem; }
+        .scale-axis {
+            position: relative;
+            height: 1.4rem;
+            margin-left: 190px;
+            margin-right: 4.5rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+        }
+        .scale-axis span { position: absolute; transform: translateX(-50%); }
+        .scale-axis span:first-child { transform: none; }
+        .scale-axis span:last-child { transform: translateX(-100%); }
+        .compare-row {
+            display: grid;
+            grid-template-columns: 180px 1fr auto;
+            gap: 0.75rem 1rem;
+            align-items: center;
+            padding: 0.85rem 0.9rem;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .compare-row:hover,
+        .compare-row:focus-within {
+            border-color: rgba(0, 217, 255, 0.45);
+            background: rgba(0, 217, 255, 0.05);
+        }
+        .compare-label strong { display: block; font-size: 0.98rem; }
+        .compare-label span { color: var(--text-secondary); font-size: 0.78rem; }
+        .compare-plot { position: relative; min-height: 46px; }
+        .compare-plot::before {
+            content: '';
+            position: absolute;
+            left: 55.56%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(0, 217, 255, 0.45);
+        }
+        .bar-line {
+            position: relative;
+            height: 10px;
+            margin: 6px 1.75rem 6px 0;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .bar {
+            display: block;
+            height: 100%;
+            width: var(--w);
+            border-radius: inherit;
+            position: relative;
+        }
+        .bar.before { background: rgba(229, 231, 235, 0.38); }
+        .bar.after.down { background: linear-gradient(90deg, rgba(0, 255, 136, 0.35), var(--accent-green)); }
+        .bar.after.up { background: linear-gradient(90deg, rgba(0, 217, 255, 0.35), var(--accent-cyan)); }
+        .bar em {
+            position: absolute;
+            left: calc(100% + 6px);
+            top: 50%;
+            transform: translateY(-50%);
+            font-style: normal;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        .delta {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
+            font-weight: 700;
+            min-width: 4.2rem;
+            text-align: right;
+        }
+        .delta.down { color: var(--accent-green); }
+        .delta.up { color: var(--accent-cyan); }
+        .compare-note {
+            grid-column: 2 / -1;
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+
+        .split-charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .ring-card, .gauge-card, .flow-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.1rem 1.15rem 1.2rem;
+        }
+        .ring-card h4, .gauge-card h4, .flow-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        .ring-card p, .gauge-card p, .flow-card p {
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+        .ring-wrap {
+            display: grid;
+            grid-template-columns: 148px 1fr;
+            gap: 0.8rem;
+            align-items: center;
+            margin-top: 0.8rem;
+        }
+        .ring-svg { width: 148px; height: 148px; }
+        .ring-track { fill: none; stroke: rgba(255, 255, 255, 0.08); stroke-width: 14; }
+        .ring-value {
+            fill: none;
+            stroke-width: 14;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 80px 80px;
+            stroke-dasharray: var(--circ);
+            stroke-dashoffset: var(--gap);
+        }
+        .ring-value.saved { stroke: var(--accent-green); }
+        .ring-value.infra { stroke: var(--accent-orange); }
+        .ring-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.35rem;
+            font-weight: 700;
+            fill: #e5e7eb;
+        }
+        .ring-sub { font-size: 0.68rem; fill: #9ca3af; }
+        .fact-list {
+            display: grid;
+            gap: 0.45rem;
+            margin: 0.35rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .fact-list li { color: var(--text-primary); font-size: 0.9rem; }
+
+        .pipeline-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1rem;
+            align-items: stretch;
+        }
+        .gauge-svg { width: 100%; height: auto; margin-top: 0.4rem; }
+        .gauge-track, .gauge-value { fill: none; stroke-width: 16; stroke-linecap: round; }
+        .gauge-track { stroke: rgba(255, 255, 255, 0.1); }
+        .gauge-value { stroke: var(--accent-cyan); stroke-dasharray: 98 100; }
+        .gauge-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            fill: #e5e7eb;
+        }
+        .gauge-axis { font-size: 11px; fill: #9ca3af; font-family: 'JetBrains Mono', monospace; }
+        .volume-list { display: grid; gap: 0.7rem; }
+        .volume-item {
+            padding: 0.85rem 0.9rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .volume-item strong {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.35rem;
+            color: var(--accent-cyan);
+        }
+        .volume-item span { color: var(--text-secondary); font-size: 0.86rem; }
+        .flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            gap: 0.45rem;
+            align-items: center;
+            margin-top: 0.9rem;
+        }
+        .flow-step {
+            background: rgba(0, 217, 255, 0.06);
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 12px;
+            padding: 0.7rem 0.75rem;
+            min-height: 74px;
+        }
+        .flow-step strong { display: block; font-size: 0.88rem; margin-bottom: 0.2rem; }
+        .flow-step span { color: var(--text-secondary); font-size: 0.78rem; line-height: 1.35; }
+        .flow-arrow { color: var(--accent-green); font-size: 1.2rem; }
+
+        .sql-link {
+            justify-self: start;
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 217, 255, 0.35);
+            border-radius: 999px;
+            padding: 0.45rem 0.85rem;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .sql-link:hover { background: rgba(0, 217, 255, 0.08); }
+
+        .tableau-view.active .bar { animation: barGrow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .tableau-view.active .compare-row:nth-child(2) .bar { animation-delay: 0.08s; }
+        .tableau-view.active .compare-row:nth-child(3) .bar { animation-delay: 0.16s; }
+        .tableau-view.active .compare-row:nth-child(4) .bar { animation-delay: 0.24s; }
+        .tableau-view.active .compare-row:nth-child(5) .bar { animation-delay: 0.32s; }
+        .tableau-view.active .ring-value { animation: ringDraw 1.05s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .tableau-view.active .gauge-value { animation: gaugeDraw 1.05s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        @keyframes barGrow { from { width: 0; } }
+        @keyframes ringDraw { from { stroke-dashoffset: var(--circ); } }
+        @keyframes gaugeDraw { from { stroke-dasharray: 0 100; } }
+
+        @media (max-width: 800px) {
+            .compare-row, .ring-wrap, .pipeline-layout, .split-charts, .flow {
+                grid-template-columns: 1fr;
+            }
+            .scale-axis { margin-left: 0; margin-right: 0; }
+            .compare-note { grid-column: 1 / -1; }
+            .flow-arrow { transform: rotate(90deg); justify-self: center; }
+            .delta { text-align: left; }
         }
 
         .mock-dashboard {
@@ -835,7 +1079,7 @@
         /* Responsive design */
         @media (max-width: 1200px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .terminal-sidebar {
@@ -875,6 +1119,338 @@
             .tableau-tabs {
                 flex-wrap: wrap;
             }
+        }
+
+        html { scroll-behavior: smooth; }
+
+        section[id] { scroll-margin-top: 4.75rem; }
+
+        .win-card.reveal.in:hover { transform: translateY(-5px); }
+        .project-card.reveal.in:hover { transform: translateY(-3px); }
+        .timeline-item.reveal.in:hover { transform: translateX(4px); }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: -3rem -3rem 2.25rem;
+            padding: 0.85rem 3rem;
+            background: rgba(10, 14, 23, 0.82);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .site-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.is-active {
+            color: var(--accent-cyan);
+            border-color: rgba(0, 217, 255, 0.35);
+            background: rgba(0, 217, 255, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            box-shadow: 0 0 12px var(--accent-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-ghost:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-group {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.15rem 1.15rem 1.25rem;
+            backdrop-filter: blur(16px);
+        }
+
+        .skill-group h3 {
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 0.35rem;
+            padding-left: 1.6rem;
+        }
+
+        .timeline-rail {
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            bottom: 0.4rem;
+            width: 2px;
+            background: rgba(0, 217, 255, 0.18);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .timeline-rail span {
+            display: block;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-green));
+            transition: height 0.15s linear;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.35rem 1.5rem 1.25rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.6rem;
+            top: 1.55rem;
+            width: 12px;
+            height: 12px;
+            margin-left: -5px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 0 4px rgba(10, 14, 23, 0.9);
+        }
+
+        .timeline-item.is-current::before {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(10, 14, 23, 0.9), 0 0 14px var(--accent-green);
+        }
+
+        .timeline-item:hover {
+            border-color: rgba(0, 217, 255, 0.55);
+            transform: translateX(4px);
+            box-shadow: 0 12px 32px rgba(0, 217, 255, 0.08);
+        }
+
+        .role-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .main-content,
+        .terminal-sidebar {
+            min-width: 0;
+        }
+
+        .role-dates {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-green);
+        }
+
+        .bullet-list {
+            margin: 0.65rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .bullet-list li + li { margin-top: 0.35rem; }
+
+        .now-pill {
+            display: inline-block;
+            margin-left: 0.45rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg-primary);
+            background: var(--accent-green);
+            border-radius: 999px;
+            padding: 0.12rem 0.45rem;
+            vertical-align: middle;
+            font-weight: 700;
+        }
+
+        .project-card.featured {
+            border-color: rgba(0, 255, 136, 0.35);
+            background:
+                linear-gradient(160deg, rgba(0, 255, 136, 0.08), transparent 42%),
+                var(--glass-bg);
+        }
+
+        .award {
+            display: inline-block;
+            margin-bottom: 0.55rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            color: var(--accent-green);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        .chart-bar {
+            transform-origin: bottom center;
+            transform: scaleY(0);
+        }
+
+        .tableau-view.active .chart-bar {
+            animation: barRise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .tableau-view.active .chart-bar:nth-child(2) { animation-delay: 0.05s; }
+        .tableau-view.active .chart-bar:nth-child(3) { animation-delay: 0.1s; }
+        .tableau-view.active .chart-bar:nth-child(4) { animation-delay: 0.15s; }
+        .tableau-view.active .chart-bar:nth-child(5) { animation-delay: 0.2s; }
+        .tableau-view.active .chart-bar:nth-child(6) { animation-delay: 0.25s; }
+        .tableau-view.active .chart-bar:nth-child(7) { animation-delay: 0.3s; }
+
+        @keyframes barRise {
+            to { transform: scaleY(1); }
+        }
+
+        .win-metric .count {
+            font: inherit;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        .chart-placeholder:focus-visible,
+        .tableau-tab:focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 3px;
+        }
+
+        .tableau-tab {
+            font-family: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -40px;
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            padding: 0.5rem 0.8rem;
+            z-index: 100;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .site-nav {
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-nav {
+                margin: -2rem -1.5rem 1.5rem;
+                padding: 0.7rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .timeline-item:hover { transform: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .chart-bar { transform: none; }
+            body::before, .orb, .terminal-indicator, .eyebrow::before { animation: none !important; }
         }
 
         /* Click indicator */
@@ -980,6 +1556,7 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Type Splash anywhere on the page to unlock LinkedIn (hidden field for paste entry). -->
     <input type="password" id="portfolioGhostPass" class="portfolio-ghost-field" autocomplete="off" autocorrect="off" spellcheck="false" tabindex="-1" aria-hidden="true">
 
@@ -990,8 +1567,8 @@
         <!-- Terminal Sidebar -->
         <aside class="terminal-sidebar">
             <div class="profile-section">
-                <h1 class="profile-name">Debaris Ezumah</h1>
-                <p class="profile-title">Data Engineer | AI Project Manager · Security-first · MS Cybersecurity (2026)</p>
+                <p class="profile-name">Debaris Ezumah</p>
+                <p class="profile-title">Data Governance &amp; Quality Lead · Security-first · MS Cybersecurity (2026)</p>
                 
                 <div class="profile-stats">
                     <div class="stat-item">
@@ -1055,165 +1632,253 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main class="main-content" id="main">
+            <nav class="site-nav" aria-label="Portfolio sections">
+                <a href="#impact">Impact</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#dashboards">Dashboards</a>
+            </nav>
             <!-- Hero Section -->
             <section class="hero">
-                <h1>Security-First Data Engineer<br>Who Ships Impact</h1>
+                <p class="eyebrow">Open to governance, quality, and compliance leadership</p>
+                <h1>Data governance that stays audit-ready</h1>
                 <p class="hero-subtitle">
-                    Strategic AI Project Manager and Data Engineering Leader with a track record delivering
-                    enterprise-scale AI, ML, and data initiatives from ideation through deployment.
-                    Expert in translating complex business requirements into measurable, revenue-driving outcomes.
+                    Data Governance and Quality Lead who stands up Master Data Management, automated compliance,
+                    and regulatory pipelines across healthcare, public records, and logistics. I pair Python and SQL
+                    engineering with cybersecurity risk analysis so architectures meet governance, risk, and compliance standards.
                 </p>
-                <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Engineering%20opportunity" class="cta-button">Hire me / Let's talk</a>
-            </section>
-
-            <!-- Technologies -->
-            <section class="tech-section">
-                <h2 class="section-title">Technologies &amp; Tools</h2>
-                <p class="hero-subtitle" style="margin-bottom: 0;">Advanced SQL · Python · PySpark · AWS · GCP · ETL/ELT · RAG · MLOps · Data Governance · OAuth/SAML · Kafka</p>
-                <div class="tech-grid">
-                    <span class="tech-pill">Advanced SQL</span>
-                    <span class="tech-pill">Python</span>
-                    <span class="tech-pill">PySpark</span>
-                    <span class="tech-pill">Apache Spark</span>
-                    <span class="tech-pill">AWS (S3, EC2)</span>
-                    <span class="tech-pill">Google BigQuery</span>
-                    <span class="tech-pill">Tableau</span>
-                    <span class="tech-pill">Power BI</span>
-                    <span class="tech-pill">PostgreSQL</span>
-                    <span class="tech-pill">Redshift</span>
-                    <span class="tech-pill">MongoDB</span>
-                    <span class="tech-pill">DynamoDB</span>
-                    <span class="tech-pill">ETL / ELT</span>
-                    <span class="tech-pill">FinOps</span>
-                    <span class="tech-pill">RPA</span>
-                    <span class="tech-pill">Data Modeling</span>
-                    <span class="tech-pill">dbt</span>
-                    <span class="tech-pill">RAG</span>
-                    <span class="tech-pill">NLP Pipelines</span>
-                    <span class="tech-pill">MLOps</span>
-                    <span class="tech-pill">OAuth 2.0 / SAML / OpenID Connect</span>
-                    <span class="tech-pill">Kafka</span>
-                    <span class="tech-pill">MuleSoft</span>
-                    <span class="tech-pill">Jitterbit</span>
-                    <span class="tech-pill">React</span>
-                    <span class="tech-pill">Vite</span>
-                    <span class="tech-pill">Tailwind CSS</span>
-                    <span class="tech-pill">Advanced Excel</span>
-                    <span class="tech-pill">Bash</span>
+                <div class="hero-actions">
+                    <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Governance%20opportunity" class="cta-button">Hire me / Let's talk</a>
+                    <a href="#experience" class="cta-ghost">See the career timeline</a>
                 </div>
             </section>
 
             <!-- Quick Wins Section -->
-            <section class="quick-wins">
+            <section class="quick-wins" id="impact">
                 <h2 class="section-title">Quick Wins & Impact Metrics</h2>
                 <div class="wins-grid">
-                    <div class="win-card">
-                        <div class="win-metric">67%</div>
-                        <div class="win-label">Cost Reduction</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="67" data-suffix="%">67%</span></div>
+                        <div class="win-label">Annual cost reduction</div>
                         <div class="win-description">
-                            Architected automated FinOps and data governance protocols cutting operational expenses by $20M+ annually (Union Pacific).
+                            FinOps and data governance protocols at Union Pacific cut operational cost by more than $20M a year.
                         </div>
-                        <div class="win-badge">FinOps & Governance</div>
-                    </div>
+                        <div class="win-badge">Union Pacific · FinOps</div>
+                    </article>
 
-                    <div class="win-card">
-                        <div class="win-metric">34%</div>
-                        <div class="win-label">Revenue Increase</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="34" data-suffix="%">34%</span></div>
+                        <div class="win-label">Revenue increase</div>
                         <div class="win-description">
-                            Re-engineered Spark/SQL ETL pipelines identifying market inefficiencies and capturing untapped opportunities
+                            Rebuilt data-quality and SQL ETL pipelines, closed system-wide discrepancies, and surfaced facility inefficiencies.
                         </div>
-                        <div class="win-badge">Performance Tuning</div>
-                    </div>
+                        <div class="win-badge">Union Pacific · ETL</div>
+                    </article>
 
-                    <div class="win-card">
-                        <div class="win-metric">95%</div>
-                        <div class="win-label">Error Reduction</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="95" data-suffix="%">95%</span></div>
+                        <div class="win-label">Fewer billing errors</div>
                         <div class="win-description">
-                            Deployed Python/RPA frameworks with OCR, eliminating manual billing errors and preventing financial leakage
+                            Python and RPA validation with OCR removed manual billing errors and saved 5,000+ staff hours a year.
                         </div>
-                        <div class="win-badge">Automation</div>
-                    </div>
+                        <div class="win-badge">Automation · OCR</div>
+                    </article>
 
-                    <div class="win-card">
-                        <div class="win-metric">70%</div>
-                        <div class="win-label">Delivery Precision</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="99.9" data-decimals="1" data-suffix="%">99.9%</span></div>
+                        <div class="win-label">Pipeline uptime</div>
                         <div class="win-description">
-                            Built Python-driven route optimization engine improving delivery precision for a global client base (Union Pacific).
+                            ETL ingestion of 1.3 million public records and 554 GB of legal data daily, with full regulatory compliance.
                         </div>
-                        <div class="win-badge">Python & Spark</div>
-                    </div>
+                        <div class="win-badge">Vortx Data · Lineage</div>
+                    </article>
 
-                    <div class="win-card">
-                        <div class="win-metric">100%</div>
-                        <div class="win-label">Data Availability</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="38" data-suffix="%">38%</span></div>
+                        <div class="win-label">Lower infrastructure cost</div>
                         <div class="win-description">
-                            Guided critical M&A data integration with seamless schema mapping and zero downtime migration
+                            Local-first processing and cloud lifecycle policies cut monthly infrastructure cost while keeping data integrity.
                         </div>
-                        <div class="win-badge">Architecture</div>
-                    </div>
+                        <div class="win-badge">Vortx Data · FinOps</div>
+                    </article>
 
-                    <div class="win-card">
-                        <div class="win-metric">100K+</div>
-                        <div class="win-label">Real-Time Logs</div>
+                    <article class="win-card reveal">
+                        <div class="win-metric"><span class="count" data-count="100" data-suffix="%">100%</span></div>
+                        <div class="win-label">Regulatory compliance</div>
                         <div class="win-description">
-                            Scaled AWS Spark pipelines processing social analytics at enterprise scale with 95% efficiency gain
+                            Health-and-safety monitoring reached 100% DOT medical compliance, and MDM held 100% integrity on health-system contracts.
                         </div>
-                        <div class="win-badge">AWS & Big Data</div>
+                        <div class="win-badge">DOT · MDM</div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="experience-section" id="experience">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline" id="careerTimeline">
+                    <div class="timeline-rail" aria-hidden="true"><span id="timelineFill"></span></div>
+
+                    <article class="timeline-item is-current reveal">
+                        <div class="role-row">
+                            <div class="experience-role">Data Governance Architect &amp; Systems Lead <span class="now-pill">Now</span></div>
+                            <div class="role-dates">Jan 2026 – Present</div>
+                        </div>
+                        <div class="experience-meta">Vortx Data · Atlanta, GA</div>
+                        <ul class="bullet-list">
+                            <li>Designed ETL ingestion for 1.3 million public records and 554 GB of legal data daily at 99.9% uptime.</li>
+                            <li>Enforced lineage, privacy, and governance standards on state and federal court public-record datasets.</li>
+                            <li>Cut monthly infrastructure cost 38% with local-first processing and cloud lifecycle policies.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="role-row">
+                            <div class="experience-role">Mgr II Data Governance</div>
+                            <div class="role-dates">Jan 2023 – Dec 2025</div>
+                        </div>
+                        <div class="experience-meta">Union Pacific · Omaha, NE</div>
+                        <ul class="bullet-list">
+                            <li>Automated medical and regulatory compliance, reducing annual operating cost 67% (more than $20M).</li>
+                            <li>Re-engineered infrastructure data quality and SQL ETL, driving a 34% annual revenue increase.</li>
+                            <li>Deployed Python/RPA validation with OCR, cutting billing errors 95% and saving 5,000+ staff hours a year.</li>
+                            <li>Raised facility maintenance precision 70% with a Python systems optimization engine across a national network.</li>
+                            <li>Delivered C-suite reporting on AI governance, institutional risk, and facility performance.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="role-row">
+                            <div class="experience-role">Senior Data Quality &amp; Compliance Project Lead</div>
+                            <div class="role-dates">Jan 2020 – Dec 2022</div>
+                        </div>
+                        <div class="experience-meta">Affordable Trucker Help · Suwanee, GA</div>
+                        <ul class="bullet-list">
+                            <li>Built a health-and-safety monitoring platform that reached 100% DOT medical regulatory compliance.</li>
+                            <li>Integrated driver certification tracking with core databases so updates stayed current and discrepancies closed.</li>
+                            <li>Aligned operations, legal compliance, and IT around transparent data governance.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="role-row">
+                            <div class="experience-role">Master Data Management &amp; Governance Lead</div>
+                            <div class="role-dates">Jan 2016 – Dec 2019</div>
+                        </div>
+                        <div class="experience-meta">Zumach Agency · Buford, GA</div>
+                        <ul class="bullet-list">
+                            <li>Stood up an MDM framework with 100% integrity and accuracy across health-system contracts and provider data.</li>
+                            <li>Built a SQL tracking database under Agile methods to automate healthcare compliance and reduce liability risk.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="tech-section" id="skills">
+                <h2 class="section-title">Skills aligned to the resume</h2>
+                <div class="skill-groups">
+                    <div class="skill-group reveal">
+                        <h3>Governance &amp; quality</h3>
+                        <div class="tech-grid">
+                            <span class="tech-pill">Master Data Management</span>
+                            <span class="tech-pill">Data quality profiling</span>
+                            <span class="tech-pill">Data lineage</span>
+                            <span class="tech-pill">Metadata management</span>
+                            <span class="tech-pill">Audit logging</span>
+                            <span class="tech-pill">DOT compliance</span>
+                            <span class="tech-pill">Healthcare data</span>
+                            <span class="tech-pill">Public records</span>
+                        </div>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3>GRC &amp; security</h3>
+                        <div class="tech-grid">
+                            <span class="tech-pill">Threat modeling</span>
+                            <span class="tech-pill">Data flow diagrams</span>
+                            <span class="tech-pill">Risk analysis</span>
+                            <span class="tech-pill">OAuth 2.0 / SAML</span>
+                            <span class="tech-pill">Enterprise security planning</span>
+                            <span class="tech-pill">Automated compliance</span>
+                        </div>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3>Engineering</h3>
+                        <div class="tech-grid">
+                            <span class="tech-pill">Advanced SQL</span>
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">PySpark</span>
+                            <span class="tech-pill">ETL / ELT</span>
+                            <span class="tech-pill">Schema modeling</span>
+                            <span class="tech-pill">REST / SOAP</span>
+                            <span class="tech-pill">RAG</span>
+                            <span class="tech-pill">NLP pipelines</span>
+                            <span class="tech-pill">AWS</span>
+                            <span class="tech-pill">Google Cloud</span>
+                            <span class="tech-pill">Azure</span>
+                        </div>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3>Analytics &amp; delivery</h3>
+                        <div class="tech-grid">
+                            <span class="tech-pill">Tableau</span>
+                            <span class="tech-pill">Advanced Excel</span>
+                            <span class="tech-pill">FinOps</span>
+                            <span class="tech-pill">RPA</span>
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Vite</span>
+                            <span class="tech-pill">Tailwind CSS</span>
+                            <span class="tech-pill">Stakeholder reporting</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Projects -->
-            <section class="projects-section">
-                <h2 class="section-title">Projects &amp; Side Work</h2>
+            <section class="projects-section" id="projects">
+                <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
-                    <a href="https://github.com/Dezuma/" class="project-card" target="_blank" rel="noopener">
-                        <h3>System SEO Dashboard (RAG)</h3>
-                        <p>RAG toolkit for regulated advertising; processed 10,000+ logs. Full project ownership.</p>
+                    <a href="https://dezuma.github.io/navi-med/" class="project-card featured reveal" target="_blank" rel="noopener">
+                        <div class="award">IBM Smart Healthcare · top spot · 109 organizations</div>
+                        <h3>NaviMed</h3>
+                        <p>Led the team that won Smart Healthcare, with project governance, data privacy, and compliance built in from concept through deployment. Feb–May 2026.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Healthcare AI</span>
+                            <span class="project-tag">Governance</span>
+                            <span class="project-tag">Privacy</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
+                        <h3>System SEO / RAG log audit</h3>
+                        <p>Retrieval-augmented log toolkit with automated quality controls across 10,000+ system records and regulatory standardization. Oct–Dec 2025.</p>
                         <div class="project-tags">
                             <span class="project-tag">RAG</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Analytics</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Dezuma/App_Dev_Psi/tree/main" class="project-card" target="_blank" rel="noopener">
-                        <h3>MLOps / App Dev</h3>
-                        <p>Machine Learning Operations and application development—predictive models, automated validation.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">MLOps</span>
+                            <span class="project-tag">Audit</span>
                             <span class="project-tag">Python</span>
                         </div>
                     </a>
-                    <a href="https://github.com/Dezuma/" class="project-card" target="_blank" rel="noopener">
-                        <h3>Threat Modeling</h3>
-                        <p>Data Flow Diagrams (DFDs), 165+ security improvements for enterprise defenses.</p>
+                    <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
+                        <h3>Threat modeling &amp; data security audit</h3>
+                        <p>Mapped enterprise flows with data flow diagrams and delivered 165+ security and governance recommendations. 2024.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Security</span>
                             <span class="project-tag">DFD</span>
+                            <span class="project-tag">GRC</span>
                         </div>
                     </a>
-                    <a href="https://github.com/Dezuma/" class="project-card" target="_blank" rel="noopener">
-                        <h3>Automated Pipeline Reporting</h3>
-                        <p>Python/Excel reports with real-time validation—19 hours of manual labor saved weekly.</p>
+                    <a href="https://github.com/Dezuma/" class="project-card reveal" target="_blank" rel="noopener">
+                        <h3>BitWarden security &amp; documentation audit</h3>
+                        <p>Python security checks and standardized framework documentation for audit readiness, access transparency, and reliability. Aug–Dec 2024.</p>
                         <div class="project-tags">
                             <span class="project-tag">Python</span>
-                            <span class="project-tag">Automation</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Dezuma/" class="project-card" target="_blank" rel="noopener">
-                        <h3>BitWarden Security</h3>
-                        <p>Python-based security checks and documentation architecture for cybersecurity frameworks.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Audit</span>
                         </div>
                     </a>
                 </div>
             </section>
 
             <!-- Education & Certifications -->
-            <section class="edu-section">
+            <section class="edu-section reveal" id="education">
                 <h2 class="section-title">Education &amp; Certifications</h2>
                 <div class="edu-grid">
                     <div class="edu-card">
@@ -1239,137 +1904,180 @@
             </section>
 
             <!-- Volunteer -->
-            <section class="experience-section">
+            <section class="experience-section reveal" id="community">
                 <h2 class="section-title">Community &amp; Volunteer</h2>
                 <div class="experience-item">
                     <div class="experience-role">Water for Kids Initiative</div>
                     <div class="experience-meta"><a href="https://primeyef.org/portfolio/clean-water-for-children/" target="_blank" rel="noopener" style="color: var(--accent-cyan);">primeyef.org</a></div>
-                    <div class="experience-desc">Orchestrated logistics and resource allocation for clean water access for underserved youth.</div>
+                    <div class="experience-desc">Volunteer supporting water-quality access, youth programs, and local fundraising for clean water.</div>
                 </div>
                 <div class="experience-item">
                     <div class="experience-role">Kappa Alpha Psi - AH Member</div>
-                    <div class="experience-meta">Omaha, NE · 2025</div>
-                    <div class="experience-desc">Led fundraising events (+5% donations YoY), expanded community impact (+35% participant growth), and coordinated recurring professional development events.</div>
+                    <div class="experience-meta">2025 – Present</div>
+                    <div class="experience-desc">Fundraising up 5% year over year, community participation up 35%, and bi-monthly professional development events.</div>
                 </div>
             </section>
 
             <!-- Tableau Dashboard Section -->
-            <section class="tableau-section">
+            <section class="tableau-section" id="dashboards">
                 <h2 class="section-title">Interactive Dashboards &amp; Analytics</h2>
+                <p class="hero-subtitle" style="font-size: 1rem; margin-bottom: 0.75rem;">Each chart is a resume result on a labeled scale. The note under a row is what changed. Open the SQL pattern when you want the review query.</p>
                 <a href="https://public.tableau.com/app/profile/dbz.dbz/vizzes" class="tableau-cta-link" target="_blank" rel="noopener">View my Tableau Public dashboards →</a>
                 <div class="tableau-container">
                     <div class="tableau-header">
                         <div class="tableau-tabs">
-                            <div class="tableau-tab active" data-tab="performance">Performance Metrics</div>
-                            <div class="tableau-tab" data-tab="cost">Cost Analysis</div>
-                            <div class="tableau-tab" data-tab="pipeline">Pipeline Health</div>
+                            <button type="button" class="tableau-tab active" data-tab="performance" aria-selected="true">Performance Metrics</button>
+                            <button type="button" class="tableau-tab" data-tab="cost" aria-selected="false">Cost Analysis</button>
+                            <button type="button" class="tableau-tab" data-tab="pipeline" aria-selected="false">Pipeline Health</button>
                         </div>
                     </div>
                     
                     <div class="tableau-embed">
-                        <!-- Performance Metrics view -->
                         <div class="tableau-view active" id="view-performance">
                             <div class="mock-dashboard">
-                                <div class="dashboard-grid">
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">$20M</div>
-                                        <div class="dashboard-metric-label">Annual Savings</div>
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Read the direction, then the size</div>
+                                        <h3>What changed after the governance work</h3>
+                                        <p class="story-lead">Every measure starts at 100, the level before the change. The colored bar is the resume result on that same scale. A mark at 100 is the baseline. Lower is the win for cost and errors. Higher is the win for revenue and precision.</p>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">99.8%</div>
-                                        <div class="dashboard-metric-label">Uptime SLA</div>
+                                    <div class="legend" aria-hidden="true">
+                                        <span><i class="swatch-before"></i>Before, indexed at 100</span>
+                                        <span><i class="swatch-down"></i>Lower is the win</span>
+                                        <span><i class="swatch-up"></i>Higher is the win</span>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">2.4s</div>
-                                        <div class="dashboard-metric-label">Avg Query Time</div>
+                                    <div class="compare-chart">
+                                        <div class="scale-axis" aria-hidden="true">
+                                            <span style="left:0">0</span>
+                                            <span style="left:55.56%">100 before</span>
+                                            <span style="left:100%">180</span>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Operating cost</strong><span>Union Pacific · lower wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after down" style="--w:18.33%"><em>33</em></span></div>
+                                            </div>
+                                            <div class="delta down">−67%</div>
+                                            <p class="compare-note">More than $20M a year came out of operating cost.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Billing errors</strong><span>OCR validation · lower wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after down" style="--w:2.78%"><em>5</em></span></div>
+                                            </div>
+                                            <div class="delta down">−95%</div>
+                                            <p class="compare-note">Manual billing errors dropped 95%, returning 5,000+ staff hours a year.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Revenue</strong><span>SQL ETL quality · higher wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after up" style="--w:74.44%"><em>134</em></span></div>
+                                            </div>
+                                            <div class="delta up">+34%</div>
+                                            <p class="compare-note">Data-quality and SQL ETL work surfaced facility inefficiencies and a 34% revenue increase.</p>
+                                        </div>
+                                        <div class="compare-row">
+                                            <div class="compare-label"><strong>Facility precision</strong><span>National network · higher wins</span></div>
+                                            <div class="compare-plot">
+                                                <div class="bar-line"><span class="bar before" style="--w:55.56%"><em>100</em></span></div>
+                                                <div class="bar-line"><span class="bar after up" style="--w:94.44%"><em>170</em></span></div>
+                                            </div>
+                                            <div class="delta up">+70%</div>
+                                            <p class="compare-note">A Python optimization engine raised facility maintenance precision 70%.</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="chart-placeholder" data-sql="query1">
-                                    <div class="chart-title">SQL Query Performance Optimization</div>
-                                    <div class="chart-bars">
-                                        <div class="chart-bar" style="height: 60%;"></div>
-                                        <div class="chart-bar" style="height: 85%;"></div>
-                                        <div class="chart-bar" style="height: 40%;"></div>
-                                        <div class="chart-bar" style="height: 95%;"></div>
-                                        <div class="chart-bar" style="height: 70%;"></div>
-                                        <div class="chart-bar" style="height: 88%;"></div>
-                                        <div class="chart-bar" style="height: 55%;"></div>
-                                    </div>
-                                    <div class="click-hint">Click to view SQL →</div>
-                                </div>
-                                <div class="chart-placeholder" data-sql="query2" style="margin-top: 1.5rem;">
-                                    <div class="chart-title">ETL Pipeline Throughput Analysis</div>
-                                    <div class="chart-bars">
-                                        <div class="chart-bar" style="height: 75%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 90%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 65%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 82%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 95%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 78%; background: linear-gradient(180deg, var(--accent-green), rgba(0, 255, 136, 0.3));"></div>
-                                    </div>
-                                    <div class="click-hint">Click to view SQL →</div>
+                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for this review</button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Cost Analysis view -->
                         <div class="tableau-view" id="view-cost">
                             <div class="mock-dashboard">
-                                <div class="dashboard-grid">
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">67%</div>
-                                        <div class="dashboard-metric-label">Cost Reduction</div>
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Two different clocks</div>
+                                        <h3>Annual operating cost, then monthly infrastructure</h3>
+                                        <p class="story-lead">These are not the same saving. The green ring is Union Pacific’s annual operating cost. The amber ring is Vortx’s monthly infrastructure bill. The filled part is what came out.</p>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">$20M+</div>
-                                        <div class="dashboard-metric-label">Annual Savings</div>
+                                    <div class="split-charts">
+                                        <article class="ring-card">
+                                            <h4>Annual operating cost</h4>
+                                            <p>Union Pacific. Filled arc is the 67% removed. The open arc is cost that remained.</p>
+                                            <div class="ring-wrap">
+                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="67 percent of annual operating cost removed, more than 20 million dollars">
+                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
+                                                    <circle class="ring-value saved" cx="80" cy="80" r="54" style="--circ:339.29; --gap:111.97"></circle>
+                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">67%</text>
+                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
+                                                </svg>
+                                                <ul class="fact-list">
+                                                    <li><strong>$20M+</strong> kept each year</li>
+                                                    <li>33% of that cost base still running</li>
+                                                    <li>FinOps plus compliance automation</li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article class="ring-card">
+                                            <h4>Monthly infrastructure</h4>
+                                            <p>Vortx Data. Filled arc is the 38% cut. The open arc is the bill that remained.</p>
+                                            <div class="ring-wrap">
+                                                <svg class="ring-svg" viewBox="0 0 160 160" role="img" aria-label="38 percent of monthly infrastructure cost removed">
+                                                    <circle class="ring-track" cx="80" cy="80" r="54"></circle>
+                                                    <circle class="ring-value infra" cx="80" cy="80" r="54" style="--circ:339.29; --gap:210.36"></circle>
+                                                    <text class="ring-label" x="80" y="78" text-anchor="middle">38%</text>
+                                                    <text class="ring-sub" x="80" y="98" text-anchor="middle">removed</text>
+                                                </svg>
+                                                <ul class="fact-list">
+                                                    <li>Local-first processing</li>
+                                                    <li>Cloud lifecycle policies</li>
+                                                    <li>Integrity held while the bill fell</li>
+                                                </ul>
+                                            </div>
+                                        </article>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">34%</div>
-                                        <div class="dashboard-metric-label">Revenue Impact</div>
-                                    </div>
-                                </div>
-                                <div class="chart-placeholder" data-sql="query1">
-                                    <div class="chart-title">Cloud Spend by Service (FinOps)</div>
-                                    <div class="chart-bars">
-                                        <div class="chart-bar" style="height: 45%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 70%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 55%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 38%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
-                                        <div class="chart-bar" style="height: 62%; background: linear-gradient(180deg, var(--accent-orange), rgba(255, 107, 53, 0.3));"></div>
-                                    </div>
-                                    <div class="click-hint">Click to view SQL →</div>
+                                    <button type="button" class="sql-link" data-sql="query1">Read the SQL pattern for spend review</button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Pipeline Health view -->
                         <div class="tableau-view" id="view-pipeline">
                             <div class="mock-dashboard">
-                                <div class="dashboard-grid">
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">99.8%</div>
-                                        <div class="dashboard-metric-label">Success Rate</div>
+                                <div class="story-board">
+                                    <div>
+                                        <div class="story-kicker">Zoomed so 99.9 is not a full circle</div>
+                                        <h3>Uptime on a 95 to 100 scale</h3>
+                                        <p class="story-lead">A normal gauge would look completely full. This one starts at 95%, so the last half-point stays visible. The needle stops at 99.9% pipeline uptime while 1.3 million records and 554 GB move each day.</p>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">100K+</div>
-                                        <div class="dashboard-metric-label">Logs / Hour</div>
+                                    <div class="pipeline-layout">
+                                        <article class="gauge-card">
+                                            <h4>Pipeline uptime</h4>
+                                            <p>Vortx Data. Daily legal and public-record ingestion.</p>
+                                            <svg class="gauge-svg" viewBox="0 0 240 150" role="img" aria-label="Pipeline uptime 99.9 percent on a scale from 95 to 100">
+                                                <path class="gauge-track" d="M24,118 A96,96 0 0 1 216,118"></path>
+                                                <path class="gauge-value" pathLength="100" d="M24,118 A96,96 0 0 1 216,118"></path>
+                                                <text class="gauge-num" x="120" y="104" text-anchor="middle">99.9%</text>
+                                                <text class="gauge-axis" x="18" y="140">95%</text>
+                                                <text class="gauge-axis" x="216" y="140" text-anchor="end">100%</text>
+                                            </svg>
+                                        </article>
+                                        <div class="volume-list">
+                                            <div class="volume-item"><strong>1.3 million</strong><span>public records ingested each day</span></div>
+                                            <div class="volume-item"><strong>554 GB</strong><span>of legal data processed each day</span></div>
+                                            <div class="volume-item"><strong>10,000+</strong><span>system logs checked in the RAG audit</span></div>
+                                        </div>
                                     </div>
-                                    <div class="dashboard-metric">
-                                        <div class="dashboard-metric-value">95%</div>
-                                        <div class="dashboard-metric-label">Efficiency Gain</div>
-                                    </div>
-                                </div>
-                                <div class="chart-placeholder" data-sql="query2">
-                                    <div class="chart-title">Pipeline Runs by Status (7d)</div>
-                                    <div class="chart-bars">
-                                        <div class="chart-bar" style="height: 92%;"></div>
-                                        <div class="chart-bar" style="height: 88%;"></div>
-                                        <div class="chart-bar" style="height: 95%;"></div>
-                                        <div class="chart-bar" style="height: 90%;"></div>
-                                        <div class="chart-bar" style="height: 85%;"></div>
-                                        <div class="chart-bar" style="height: 98%;"></div>
-                                        <div class="chart-bar" style="height: 94%;"></div>
-                                    </div>
-                                    <div class="click-hint">Click to view SQL →</div>
+                                    <article class="flow-card">
+                                        <h4>How a record gets through</h4>
+                                        <div class="flow">
+                                            <div class="flow-step"><strong>Ingest</strong><span>Court and public-record files land in the daily batch.</span></div>
+                                            <div class="flow-arrow" aria-hidden="true">→</div>
+                                            <div class="flow-step"><strong>Govern</strong><span>Lineage, privacy, and quality checks sit on the path.</span></div>
+                                            <div class="flow-arrow" aria-hidden="true">→</div>
+                                            <div class="flow-step"><strong>Hold</strong><span>99.9% uptime keeps the set available for audit.</span></div>
+                                        </div>
+                                    </article>
+                                    <button type="button" class="sql-link" data-sql="query2">Read the SQL pattern for pipeline health</button>
                                 </div>
                             </div>
                         </div>
@@ -1380,9 +2088,9 @@
             <!-- Bottom CTA -->
             <section class="hero" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
                 <p class="hero-subtitle" style="margin-bottom: 1rem;">
-                    I'm open to senior data engineering, architect, and data/security hybrid roles. Let's build something that scales.
+                    Open to data governance, data quality, and compliance leadership. Buford, GA · debaezu@gmail.com · 678-898-1019.
                 </p>
-                <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Engineering%20opportunity" class="cta-button">Get in touch</a>
+                <a href="mailto:debaezu@gmail.com?subject=Portfolio%20inquiry%20-%20Data%20Governance%20opportunity" class="cta-button">Get in touch</a>
             </section>
         </main>
     </div>
@@ -1391,7 +2099,7 @@
     <div class="sql-panel" id="sqlPanel">
         <div class="sql-panel-header">
             <h3 class="sql-panel-title">Query Breakdown</h3>
-            <button class="close-panel" onclick="closeSQLPanel()">×</button>
+            <button type="button" class="close-panel" id="closeSqlPanel" aria-label="Close query panel">×</button>
         </div>
         <div class="sql-panel-content" id="sqlPanelContent">
             <!-- SQL content will be dynamically loaded -->

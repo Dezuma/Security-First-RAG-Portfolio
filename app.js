@@ -94,36 +94,42 @@
         // Terminal log generation
         const logTypes = [
             { type: 'success', messages: [
-                'ETL pipeline executed successfully',
-                'Data validation complete - 0 errors',
-                'Query optimization reduced runtime by 45%',
-                'AWS S3 sync completed - 2.4M records',
-                'Spark job finished - 100% data integrity',
-                'PostgreSQL vacuum analyze complete',
-                'Cache invalidation successful',
-                'Backup completed - 500GB transferred'
+                'Lineage check passed — court records batch',
+                'DOT compliance audit — 100% current',
+                'MDM match rate held at integrity target',
+                'FinOps policy applied — lifecycle tier updated',
+                'RAG log validation complete — 0 schema breaks',
+                'Billing OCR reconciliation — exceptions queued',
+                'Pipeline uptime window — 99.9%'
             ]},
             { type: 'info', messages: [
-                'Loading dimensional model...',
-                'Connecting to Redshift cluster',
-                'Indexing fact tables',
-                'Compiling user analytics',
-                'Analyzing query execution plan',
-                'Monitoring pipeline throughput',
-                'Syncing data catalog metadata'
+                'Profiling public-record dataset...',
+                'Mapping data flow for threat model',
+                'Syncing metadata catalog',
+                'Compiling C-suite governance brief',
+                'Checking certification freshness',
+                'Indexing provider master records'
             ]},
             { type: 'warning', messages: [
-                'High memory usage detected - 87%',
-                'Slow query alert - Customer_Orders view',
-                'Schema drift detected in staging',
-                'Network latency spike - 250ms'
+                'Schema drift in staging — review queued',
+                'PII field missing classification tag',
+                'Stale certification — notify compliance',
+                'Cloud lifecycle policy due for review'
             ]}
         ];
+
+        let lastLogMessage = '';
 
         function generateLog() {
             const logContainer = document.getElementById('terminalLogs');
             const randomType = logTypes[Math.floor(Math.random() * logTypes.length)];
-            const randomMessage = randomType.messages[Math.floor(Math.random() * randomType.messages.length)];
+            let randomMessage = randomType.messages[Math.floor(Math.random() * randomType.messages.length)];
+            let guard = 0;
+            while (randomMessage === lastLogMessage && guard < 4) {
+                randomMessage = randomType.messages[Math.floor(Math.random() * randomType.messages.length)];
+                guard += 1;
+            }
+            lastLogMessage = randomMessage;
             
             const now = new Date();
             const timestamp = now.toTimeString().split(' ')[0];
@@ -199,7 +205,7 @@
 <span class="sql-keyword">WHERE</span> prev_exec_time <span class="sql-keyword">IS NOT NULL</span>
 <span class="sql-keyword">ORDER BY</span> execution_time_ms <span class="sql-keyword">DESC</span>
 <span class="sql-keyword">LIMIT</span> 100;`,
-                impact: '45% reduction in average query time, identified 12 slow queries for optimization'
+                impact: 'Pattern for reviewing query drift before a governance sign-off. Outcome figures on this site come from the resume, not from this sample.'
             },
             query2: {
                 title: 'ETL Pipeline Monitoring',
@@ -233,7 +239,7 @@
 <span class="sql-keyword">ORDER BY</span> 
     hour <span class="sql-keyword">DESC</span>, 
     pipeline_name;`,
-                impact: '99.8% pipeline success rate, reduced data processing time by 34%'
+                impact: 'Pattern for pipeline health, error types, and throughput. Resume outcomes: 99.9% uptime and 1.3M records per day.'
             }
         };
 
@@ -282,17 +288,28 @@
             tab.addEventListener('click', function() {
                 const tabId = this.getAttribute('data-tab');
                 if (!tabId) return;
-                document.querySelectorAll('.tableau-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tableau-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
                 this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
                 document.querySelectorAll('.tableau-view').forEach(view => view.classList.remove('active'));
                 const viewEl = document.getElementById('view-' + tabId);
-                if (viewEl) viewEl.classList.add('active');
+                if (viewEl) {
+                    viewEl.classList.add('active');
+                    viewEl.querySelectorAll('.bar, .ring-value, .gauge-value').forEach(function (bar) {
+                        bar.style.animation = 'none';
+                        void bar.offsetWidth;
+                        bar.style.animation = '';
+                    });
+                }
             });
         });
 
         // Chart placeholders: open SQL panel by data-sql (works in all tab views)
         document.addEventListener('click', function(event) {
-            const placeholder = event.target.closest('.chart-placeholder[data-sql]');
+            const placeholder = event.target.closest('[data-sql]');
             if (placeholder) {
                 const queryId = placeholder.getAttribute('data-sql');
                 if (queryId) openSQLPanel(queryId);
@@ -304,7 +321,7 @@
             const panel = document.getElementById('sqlPanel');
             if (!panel.classList.contains('active')) return;
             if (panel.contains(event.target)) return;
-            if (event.target.closest('.chart-placeholder')) return;
+            if (event.target.closest('[data-sql]')) return;
             closeSQLPanel();
         });
 
@@ -323,3 +340,98 @@
             });
         });
         observer.observe(sqlPanel, { attributes: true });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            const placeholder = event.target.closest('[data-sql]');
+            if (!placeholder) return;
+            event.preventDefault();
+            const queryId = placeholder.getAttribute('data-sql');
+            if (queryId) openSQLPanel(queryId);
+        });
+
+        const closeSql = document.getElementById('closeSqlPanel');
+        if (closeSql) closeSql.addEventListener('click', closeSQLPanel);
+
+        (function motionLayer() {
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function setCount(el) {
+                var target = parseFloat(el.getAttribute('data-count'));
+                var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                var suffix = el.getAttribute('data-suffix') || '';
+                if (!isFinite(target)) return;
+                el.textContent = target.toFixed(decimals) + suffix;
+            }
+
+            function animateCount(el) {
+                var target = parseFloat(el.getAttribute('data-count'));
+                var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                var suffix = el.getAttribute('data-suffix') || '';
+                if (!isFinite(target)) return;
+                if (reduce) {
+                    setCount(el);
+                    return;
+                }
+                el.textContent = (0).toFixed(decimals) + suffix;
+                var start = performance.now();
+                var duration = 900;
+                function frame(now) {
+                    var t = Math.min(1, (now - start) / duration);
+                    var eased = 1 - Math.pow(1 - t, 3);
+                    el.textContent = (target * eased).toFixed(decimals) + suffix;
+                    if (t < 1) requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+            }
+
+            var seen = new WeakSet();
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.querySelectorAll('.count').forEach(function (el) {
+                        if (seen.has(el)) return;
+                        seen.add(el);
+                        animateCount(el);
+                    });
+                    entry.target.classList.add('in');
+                    revealObserver.unobserve(entry.target);
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.reveal').forEach(function (el) {
+                revealObserver.observe(el);
+            });
+
+            var rail = document.getElementById('timelineFill');
+            var timeline = document.getElementById('careerTimeline');
+            function paintRail() {
+                if (!rail || !timeline) return;
+                var rect = timeline.getBoundingClientRect();
+                var view = window.innerHeight * 0.62;
+                var traveled = view - rect.top;
+                var pct = Math.max(0, Math.min(100, (traveled / rect.height) * 100));
+                rail.style.height = pct + '%';
+            }
+            paintRail();
+            window.addEventListener('scroll', paintRail, { passive: true });
+            window.addEventListener('resize', paintRail);
+
+            var navLinks = Array.prototype.slice.call(document.querySelectorAll('.site-nav a'));
+            var sections = navLinks.map(function (link) {
+                return document.querySelector(link.getAttribute('href'));
+            }).filter(Boolean);
+
+            function spy() {
+                var current = sections[0];
+                sections.forEach(function (section) {
+                    if (section.getBoundingClientRect().top <= 140) current = section;
+                });
+                navLinks.forEach(function (link) {
+                    var on = current && link.getAttribute('href') === '#' + current.id;
+                    link.classList.toggle('is-active', Boolean(on));
+                });
+            }
+            spy();
+            window.addEventListener('scroll', spy, { passive: true });
+        })();
